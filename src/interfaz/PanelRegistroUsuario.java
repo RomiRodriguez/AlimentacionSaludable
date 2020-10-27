@@ -479,7 +479,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         if (peso.trim().isEmpty()) {
             etiquetaErrorPeso.setText("El peso no puede estar vacío");
         } else if (pidoDatoNumerico(peso, 0, 265, etiquetaErrorPeso)) {
-            int pesoEnInt = Integer.parseInt(peso);
+            int pesoEnInt = Integer.parseInt(peso);   
         }
     }//GEN-LAST:event_cajaPesoFocusLost
 
@@ -520,7 +520,6 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             
         } else {
             etiquetaMensajeAlAceptar.setText("Error al ingresar el usuario");
-            
             if (apellidoValido == false) {
                 etiquetaErrorApellido.setText("El apellido no puede ser vacío");
             }
@@ -691,9 +690,10 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             datoAVerificar = Integer.parseInt(dato);
             if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
                 pidiendo = true;
+                etiqueta.setText("");
             } else {
-                etiqueta.setText("El dato debe estar entre:"
-                        + min + "y" + max);
+                etiqueta.setText("El dato debe estar entre: "
+                        + min + " y " + max);
             }
         } catch (NumberFormatException ex) {
             etiqueta.setText("Debe ingresar un valor numérico");
