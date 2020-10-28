@@ -193,11 +193,11 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
 
         etiquetaMedidaPeso.setText("Kg");
         panelRegUsuario.add(etiquetaMedidaPeso);
-        etiquetaMedidaPeso.setBounds(650, 380, 24, 26);
+        etiquetaMedidaPeso.setBounds(650, 380, 12, 14);
 
         etiquetaMedidaAltura.setText("Cm");
         panelRegUsuario.add(etiquetaMedidaAltura);
-        etiquetaMedidaAltura.setBounds(650, 330, 31, 26);
+        etiquetaMedidaAltura.setBounds(650, 330, 15, 14);
 
         btnAceptarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnAceptarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -231,7 +231,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
         });
         panelRegUsuario.add(listaNacionalidadesUsuario);
-        listaNacionalidadesUsuario.setBounds(480, 230, 160, 35);
+        listaNacionalidadesUsuario.setBounds(480, 230, 160, 37);
 
         etiquetaSexo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaSexo.setText("Sexo:");
@@ -285,7 +285,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
         });
         panelRegUsuario.add(checkBoxIntoleranteLactosa);
-        checkBoxIntoleranteLactosa.setBounds(590, 460, 285, 37);
+        checkBoxIntoleranteLactosa.setBounds(590, 460, 271, 37);
 
         checkBoxDiabetico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         checkBoxDiabetico.setText("Diabético");
@@ -346,7 +346,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
         });
         panelRegUsuario.add(fechaNacimiento);
-        fechaNacimiento.setBounds(480, 280, 160, 32);
+        fechaNacimiento.setBounds(480, 280, 160, 20);
 
         etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegUsuario.add(etiquetaErrorFechaNacimiento);

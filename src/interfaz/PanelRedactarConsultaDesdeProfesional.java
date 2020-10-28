@@ -35,10 +35,11 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         textoConsultaAEnviar = new javax.swing.JTextArea();
         btnEnviarConsulta = new javax.swing.JButton();
-        etiquetaMensaje = new javax.swing.JLabel();
+        etiquetaMensajeEnviado = new javax.swing.JLabel();
         etiquetaAsunto = new javax.swing.JLabel();
         cajaAsunto = new javax.swing.JTextField();
         etiquetaTitulo = new javax.swing.JLabel();
+        etiquetaMensaje1 = new javax.swing.JLabel();
 
         panelRedactarConsulta.setBackground(new java.awt.Color(255, 255, 255));
         panelRedactarConsulta.setPreferredSize(new java.awt.Dimension(1147, 784));
@@ -86,10 +87,9 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         panelRedactarConsulta.add(btnEnviarConsulta);
         btnEnviarConsulta.setBounds(830, 600, 100, 35);
 
-        etiquetaMensaje.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaMensaje.setText("Mensaje:");
-        panelRedactarConsulta.add(etiquetaMensaje);
-        etiquetaMensaje.setBounds(220, 190, 110, 26);
+        etiquetaMensajeEnviado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        panelRedactarConsulta.add(etiquetaMensajeEnviado);
+        etiquetaMensajeEnviado.setBounds(710, 640, 350, 40);
 
         etiquetaAsunto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaAsunto.setText("Asunto:");
@@ -105,6 +105,11 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         etiquetaTitulo.setText("Redactar Consulta ");
         panelRedactarConsulta.add(etiquetaTitulo);
         etiquetaTitulo.setBounds(410, 10, 310, 44);
+
+        etiquetaMensaje1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaMensaje1.setText("Mensaje:");
+        panelRedactarConsulta.add(etiquetaMensaje1);
+        etiquetaMensaje1.setBounds(220, 190, 110, 26);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -134,6 +139,7 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         mensajeAEnviar.setAsunto(cajaAsunto.getText());
         mensajeAEnviar.setMensaje(textoConsultaAEnviar.getText());
         destino.getCasillaDeEntrada().add(mensajeAEnviar);
+        etiquetaMensajeEnviado.setText("Mensaje enviado correctamente");
     }//GEN-LAST:event_btnEnviarConsultaActionPerformed
 
 
@@ -143,7 +149,8 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
     private javax.swing.JTextField cajaAsunto;
     private javax.swing.JLabel etiquetaAsunto;
     private javax.swing.JLabel etiquetaDestinatarioConsulta;
-    private javax.swing.JLabel etiquetaMensaje;
+    private javax.swing.JLabel etiquetaMensaje1;
+    private javax.swing.JLabel etiquetaMensajeEnviado;
     private javax.swing.JLabel etiquetaTitulo;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JComboBox<String> listaUsrConsultas;

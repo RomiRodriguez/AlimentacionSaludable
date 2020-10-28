@@ -201,7 +201,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaNacimiento);
-        fechaNacimiento.setBounds(560, 270, 160, 32);
+        fechaNacimiento.setBounds(560, 270, 160, 20);
 
         etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaNacimiento);
@@ -213,7 +213,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaGraduacion);
-        fechaGraduacion.setBounds(560, 370, 160, 32);
+        fechaGraduacion.setBounds(560, 370, 160, 20);
 
         etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaGraduacion);
