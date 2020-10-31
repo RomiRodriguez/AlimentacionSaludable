@@ -48,7 +48,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         panelConsultaProf.setLayout(null);
 
         btnRedactar.setBackground(new java.awt.Color(255, 0, 102));
-        btnRedactar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnRedactar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnRedactar.setForeground(new java.awt.Color(255, 255, 255));
         btnRedactar.setText("Redactar");
         btnRedactar.setContentAreaFilled(false);
@@ -59,7 +59,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
             }
         });
         panelConsultaProf.add(btnRedactar);
-        btnRedactar.setBounds(670, 530, 140, 37);
+        btnRedactar.setBounds(670, 530, 140, 28);
 
         textoLeerMensaje.setColumns(20);
         textoLeerMensaje.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -81,7 +81,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         jScrollPane2.setBounds(670, 160, 258, 350);
 
         btnBorrarCons.setBackground(new java.awt.Color(255, 0, 102));
-        btnBorrarCons.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnBorrarCons.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnBorrarCons.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrarCons.setText("Borrar");
         btnBorrarCons.setContentAreaFilled(false);
@@ -92,7 +92,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
             }
         });
         panelConsultaProf.add(btnBorrarCons);
-        btnBorrarCons.setBounds(830, 530, 100, 37);
+        btnBorrarCons.setBounds(830, 530, 100, 28);
 
         etiquetaTituloConsultas.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaTituloConsultas.setForeground(new java.awt.Color(255, 0, 102));
@@ -109,13 +109,17 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelConsultaProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelConsultaProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(panelConsultaProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelConsultaProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
