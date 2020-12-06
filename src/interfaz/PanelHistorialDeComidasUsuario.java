@@ -2,24 +2,25 @@ package interfaz;
 
 import dominio.ComidaPorDia;
 import dominio.Sistema;
+import dominio.Usuario;
 import javax.swing.JFrame;
 
 public class PanelHistorialDeComidasUsuario extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
+    private Usuario usuarioActual;
 
-    //Constructor
-    public PanelHistorialDeComidasUsuario(Sistema unSistema,
-            JFrame unaVentana,
+    public PanelHistorialDeComidasUsuario(Sistema unSistema, JFrame unaVentana,
             InterfazBotonesUsuario unaInterfaz) {
         initComponents();
         sistema = unSistema;
         ventana = unaVentana;
         interfaz = unaInterfaz;
-        listaHistorialDeComidas.setListData(interfaz.getUsuarioActual().getHistorialComidas().toArray());
+        usuarioActual = interfaz.getUsuarioActual();
+        listaHistorialDeComidas.setListData(usuarioActual.getHistorialComidas().toArray()
+        );
     }
 
     @SuppressWarnings("unchecked")
@@ -78,7 +79,8 @@ public class PanelHistorialDeComidasUsuario extends javax.swing.JPanel {
         ComidaPorDia comidaSeleccionada = (ComidaPorDia) listaHistorialDeComidas.getSelectedValue();
         if (comidaSeleccionada != null) {
             ventana.remove(this);
-            PanelVerHistorialUsuario nuevo = new PanelVerHistorialUsuario(sistema, ventana, interfaz, comidaSeleccionada);
+            PanelVerHistorialUsuario nuevo
+                    = new PanelVerHistorialUsuario(sistema, ventana, interfaz, comidaSeleccionada);
             interfaz.setActual(nuevo);
             ventana.add(nuevo);
             ventana.pack();
@@ -92,7 +94,6 @@ public class PanelHistorialDeComidasUsuario extends javax.swing.JPanel {
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnVolverActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerHistorial;

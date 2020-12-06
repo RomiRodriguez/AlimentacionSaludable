@@ -3,9 +3,7 @@ package interfaz;
 import dominio.Profesional;
 import dominio.Sistema;
 import dominio.Usuario;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -66,7 +64,7 @@ public class PanelIngresar extends javax.swing.JPanel {
         etiquetaNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaNombreUsuario.setText("¿Todavía no se ha registrado?");
         jPanel.add(etiquetaNombreUsuario);
-        etiquetaNombreUsuario.setBounds(300, 520, 330, 29);
+        etiquetaNombreUsuario.setBounds(310, 520, 320, 29);
 
         cajaNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jPanel.add(cajaNombreUsuario);
@@ -88,6 +86,8 @@ public class PanelIngresar extends javax.swing.JPanel {
         btnRegistrarse.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 0, 102));
         btnRegistrarse.setText("Regístrese ahora");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.setBorderPainted(false);
         btnRegistrarse.setContentAreaFilled(false);
         btnRegistrarse.setOpaque(true);
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class PanelIngresar extends javax.swing.JPanel {
             }
         });
         jPanel.add(btnRegistrarse);
-        btnRegistrarse.setBounds(610, 520, 250, 30);
+        btnRegistrarse.setBounds(660, 520, 190, 30);
 
         btnIniciarSesion.setBackground(new java.awt.Color(255, 0, 102));
         btnIniciarSesion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -110,7 +110,7 @@ public class PanelIngresar extends javax.swing.JPanel {
             }
         });
         jPanel.add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(530, 410, 210, 35);
+        btnIniciarSesion.setBounds(530, 410, 210, 37);
 
         etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaMensajeAlAceptar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,12 +132,13 @@ public class PanelIngresar extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -150,7 +151,8 @@ public class PanelIngresar extends javax.swing.JPanel {
         if (cajaContrasenia.getText().trim().isEmpty()) {
             etiquetaErrorContrasenia.setText("Debe completar este campo");
         }
-        if (!etiquetaErrorNombre.getText().equals("") || !etiquetaErrorContrasenia.getText().equals("")) {
+        if (!etiquetaErrorNombre.getText().equals("")
+                || !etiquetaErrorContrasenia.getText().equals("")) {
             etiquetaMensajeAlAceptar.setText("Error al ingresar usuario");
         } else {
             Usuario usuario = new Usuario();
@@ -162,39 +164,48 @@ public class PanelIngresar extends javax.swing.JPanel {
                 etiquetaErrorNombre.setText("Usuario no existente");
                 etiquetaMensajeAlAceptar.setText("Error al ingresar usuario");
             } else if (listaUsuarios.contains(usuario)) {
-                for (int i = 0; i < listaUsuarios.size(); i++) {
-                    if (listaUsuarios.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {
-                        if (listaUsuarios.get(i).getContrsenia().equals(cajaContrasenia.getText())) {
-                            ventana.remove(this);
-                            InterfazBotonesUsuario nuevaBotonera = new InterfazBotonesUsuario(sistema, ventana, listaUsuarios.get(i));
-                            ventana.pack();
-                        } else {
-                            etiquetaMensajeAlAceptar.setText("Contraseña incorrecta");
-                        }
-                    }
-                }
+                VerificarDatosUsuario();
             } else {
-                for (int i = 0; i < listaProfesionales.size(); i++) {
-                    if (listaProfesionales.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {
-                        if (listaProfesionales.get(i).getContrsenia().equals(cajaContrasenia.getText())) {
-                            ventana.remove(this);
-                            InterfazBotonesProfesional nuevaBotonera = new InterfazBotonesProfesional(sistema, ventana, listaProfesionales.get(i));
-                            ventana.pack();
-                        } else {
-                            etiquetaMensajeAlAceptar.setText("Contraseña incorrecta");
-                        }
-                    }
-                }
+                VerificarDatosProfesional();
             }
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void VerificarDatosUsuario() {
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+            if (listaUsuarios.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {
+                if (listaUsuarios.get(i).getContrsenia().equals(cajaContrasenia.getText())) {
+                    ventana.remove(this);
+                    InterfazBotonesUsuario nuevaBotonera
+                            = new InterfazBotonesUsuario(sistema, ventana, listaUsuarios.get(i));
+                    ventana.pack();
+                } else {
+                    etiquetaMensajeAlAceptar.setText("Contraseña incorrecta");
+                }
+            }
+        }
+    }
+
+    private void VerificarDatosProfesional() {
+        for (int i = 0; i < listaProfesionales.size(); i++) {
+            if (listaProfesionales.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {
+                if (listaProfesionales.get(i).getContrsenia().equals(cajaContrasenia.getText())) {
+                    ventana.remove(this);
+                    InterfazBotonesProfesional nuevaBotonera
+                            = new InterfazBotonesProfesional(sistema, ventana, listaProfesionales.get(i));
+                    ventana.pack();
+                } else {
+                    etiquetaMensajeAlAceptar.setText("Contraseña incorrecta");
+                }
+            }
+        }
+    }
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         ventana.remove(this);
         ventana.add(new PanelRegistrar(sistema, ventana));
         ventana.pack();
     }//GEN-LAST:event_btnRegistrarseActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;

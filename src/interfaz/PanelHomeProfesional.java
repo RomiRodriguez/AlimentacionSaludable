@@ -7,13 +7,11 @@ import javax.swing.JFrame;
 
 public class PanelHomeProfesional extends javax.swing.JPanel {
 
-    //Atributos
     private Profesional profesional;
     private Sistema sistema;
-    private InterfazBotonesProfesional interfaz;
+    private static InterfazBotonesProfesional interfaz;
     private JFrame ventana;
 
-    //Cosntructor
     public PanelHomeProfesional(Sistema unSistema,
             InterfazBotonesProfesional interfazActual, JFrame unaVentana) {
         initComponents();
@@ -23,6 +21,14 @@ public class PanelHomeProfesional extends javax.swing.JPanel {
         profesional = interfaz.getUsuarioActivo();
         jListDatosDelProfesional.setListData(cargoDatosDelProfesional(profesional).toArray());
         etiquetaFoto.setIcon(profesional.getFotoPerfil());
+    }
+
+    public static InterfazBotonesProfesional getInterfaz() {
+        return interfaz;
+    }
+
+    public void setActual(InterfazBotonesProfesional interfaz) {
+        this.interfaz = interfaz;
     }
 
     @SuppressWarnings("unchecked")
@@ -82,12 +88,12 @@ public class PanelHomeProfesional extends javax.swing.JPanel {
 
     private void btnEdiatrPerfilProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdiatrPerfilProfesionalActionPerformed
         ventana.remove(this);
-        PanelEditarPerfilProfesional nuevo = new PanelEditarPerfilProfesional(sistema, ventana, interfaz);
+        PanelEditarPerfilProfesional nuevo
+                = new PanelEditarPerfilProfesional(sistema, ventana, interfaz);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnEdiatrPerfilProfesionalActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEdiatrPerfilProfesional;
@@ -109,5 +115,4 @@ public class PanelHomeProfesional extends javax.swing.JPanel {
         datos.add("País de graduación: " + prof.getPaisObtuvoTitulo());
         return datos;
     }
-
 }

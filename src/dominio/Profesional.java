@@ -3,7 +3,6 @@ package dominio;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Optional;
-import javax.swing.ImageIcon;
 
 public class Profesional extends Persona implements Serializable {
 
@@ -22,7 +21,7 @@ public class Profesional extends Persona implements Serializable {
         this.nombreTituloProf = "no ingreso titulo prof";
         this.fechaGraduacion = "no ingreso fecha graduacion";
         this.paisObtuvoTitulo = Pais.Uruguay;
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
     }
 
     public ArrayList<Mensaje> getCasillaDeEntrada() {
@@ -103,7 +102,6 @@ public class Profesional extends Persona implements Serializable {
         return contrasenia.matches("[a-zA-Z0-9]*");
     }
 
-    //redefino toString
     @Override
     public String toString() {
         return "Usuario: " + this.getNombreUsuario();

@@ -7,12 +7,10 @@ import javax.swing.JFrame;
 
 public class PanelPlanAlimentacionUsuario extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
 
-    //Constructor
     public PanelPlanAlimentacionUsuario(Sistema unSistema,
             JFrame unaVentana,
             InterfazBotonesUsuario unaInterfaz) {
@@ -89,7 +87,6 @@ public class PanelPlanAlimentacionUsuario extends javax.swing.JPanel {
         interfaz.getUsuarioActual().setNecesitoPlan(true);
         mensajeAlAceptar.setText("Se ha pedido el plan de alimentación");
     }//GEN-LAST:event_btnAceptarPlanActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarPlan;

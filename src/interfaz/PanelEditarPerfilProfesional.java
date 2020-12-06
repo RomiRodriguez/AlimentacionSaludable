@@ -13,13 +13,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private Profesional profesional;
     private JFrame ventana;
     private InterfazBotonesProfesional interfaz;
 
-    //Constructor
     public PanelEditarPerfilProfesional(Sistema unSistema, JFrame unaVentana,
             InterfazBotonesProfesional interfazActual) {
         initComponents();
@@ -117,11 +115,6 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         cajaApellidosProf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cajaApellidosProfFocusLost(evt);
-            }
-        });
-        cajaApellidosProf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaApellidosProfActionPerformed(evt);
             }
         });
         panelRegProf.add(cajaApellidosProf);
@@ -246,6 +239,14 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public InterfazBotonesProfesional getInterfaz() {
+        return interfaz;
+    }
+
+    public void setActual(InterfazBotonesProfesional interfaz) {
+        this.interfaz = interfaz;
+    }
+
     private void cajaNombreProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreProfFocusLost
 
         cajaNombreProfWarning();
@@ -254,10 +255,9 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     private void cajaNombreProfWarning() {
         String nombre = cajaNombreProf.getText();
         if (nombre.trim().isEmpty()) {
-            etiquetaErrorNombreProf.setText("El nombre no puede ser vacío");
+            etiquetaErrorNombreProf.setText("Debe completar este campo");
         }
     }
-
 
     private void cajaApellidosProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaApellidosProfFocusLost
         cajaApellidosProfWarning();
@@ -266,10 +266,9 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     private void cajaApellidosProfWarning() {
         String apellido = cajaApellidosProf.getText();
         if (apellido.trim().isEmpty()) {
-            etiquetaErrorApellidoProf.setText("El apellido no puede ser vacío");
+            etiquetaErrorApellidoProf.setText("Debe completar este campo");
         }
     }
-
 
     private void cajaNombreTituloProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreTituloProfFocusLost
         cajaNombreTituloProfWarning();
@@ -278,7 +277,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     private void cajaNombreTituloProfWarning() {
         String nombreTitulo = cajaNombreTituloProf.getText();
         if (nombreTitulo.trim().isEmpty()) {
-            etiquetaErrorNombreTituloProf.setText("El título no puede estar vacío");
+            etiquetaErrorNombreTituloProf.setText("Debe completar este campo");
         }
     }
     private void btnAceptarProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarProfActionPerformed
@@ -313,7 +312,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
 
     private void fechaNacimientoWarning() {
         if (fechaNacimiento.getCalendar() == null) {
-            etiquetaErrorFechaNacimiento.setText("Debe ingresar una fecha");
+            etiquetaErrorFechaNacimiento.setText("Debe completar este campo");
         }
     }
 
@@ -323,7 +322,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
 
     private void fechaGraduacionWarning() {
         if (fechaGraduacion.getCalendar() == null) {
-            etiquetaErrorFechaGraduacion.setText("Debe ingresar una fecha");
+            etiquetaErrorFechaGraduacion.setText("Debe completar este campo");
         }
     }
 
@@ -355,10 +354,6 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         }
         actualizar();
     }//GEN-LAST:event_btnCambiarFotoActionPerformed
-
-    private void cajaApellidosProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaApellidosProfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaApellidosProfActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);

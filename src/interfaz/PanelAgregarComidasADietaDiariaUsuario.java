@@ -2,16 +2,16 @@ package interfaz;
 
 import dominio.Alimento;
 import dominio.Sistema;
+import dominio.Usuario;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
-
 
 public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
 
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
+    private Usuario usuarioActual;
 
     public PanelAgregarComidasADietaDiariaUsuario(Sistema unSistema,
             JFrame unaVentana, InterfazBotonesUsuario unaInterfaz) {
@@ -19,6 +19,7 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         sistema = unSistema;
         ventana = unaVentana;
         interfaz = unaInterfaz;
+        usuarioActual = interfaz.getUsuarioActual();
         listaComidasDiarias.setListData(sistema.getListaAlimentos().toArray());
     }
 
@@ -49,7 +50,7 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
             }
         });
         add(btnAgregarComida);
-        btnAgregarComida.setBounds(420, 540, 210, 35);
+        btnAgregarComida.setBounds(430, 580, 210, 37);
 
         listaComidasDiarias.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jScrollPane1.setViewportView(listaComidasDiarias);
@@ -78,29 +79,23 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         textoAviso.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         textoAviso.setForeground(new java.awt.Color(255, 0, 153));
         textoAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoAviso.setText("texto");
         textoAviso.setToolTipText("");
         textoAviso.setVisible(false);
         add(textoAviso);
-        textoAviso.setBounds(280, 600, 520, 40);
+        textoAviso.setBounds(270, 530, 520, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         Alimento comidaSeleccionada = (Alimento) listaComidasDiarias.getSelectedValue();
-        interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().add(comidaSeleccionada);
+        usuarioActual.getHistorialDelDia().getComidasIngeridas().add(comidaSeleccionada);
         LocalDate diaActual = LocalDate.now();
-        interfaz.getUsuarioActual().setFechaUltimaAdicion(diaActual.toString());
-        if (listaComidasDiarias.isSelectionEmpty()){
-        //mostrar que no se aggrego nada
-        textoAviso.setText("No se agregó ninguna comida");
-        
-        }else{
-        //mostrar que se agrego algo
-        textoAviso.setText("La comida se agregó correctamente");
+        usuarioActual.setFechaUltimaAdicion(diaActual.toString());
+        if (listaComidasDiarias.isSelectionEmpty()) {
+            textoAviso.setText("No se agregó ninguna comida");
+        } else {
+            textoAviso.setText("La comida se agregó correctamente");
         }
         textoAviso.setVisible(true);
-        
-        
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -110,7 +105,6 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnVolverActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;

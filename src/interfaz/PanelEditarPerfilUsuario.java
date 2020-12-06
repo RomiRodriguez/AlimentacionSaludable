@@ -5,8 +5,6 @@ import dominio.Usuario;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -16,13 +14,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private Usuario usuario;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
 
-    //Constructor
     public PanelEditarPerfilUsuario(Sistema unSistema, JFrame unaVentana,
             InterfazBotonesUsuario interfazActual) {
         initComponents();
@@ -84,7 +80,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         etiquetaMensajeAlAceptar = new javax.swing.JLabel();
         fotoPerfil = new javax.swing.JLabel();
         fechaNacimiento = new com.toedter.calendar.JDateChooser();
-        etiquetaErrorFechaNacimiento = new javax.swing.JLabel();
         etiquetaPreferencias = new javax.swing.JLabel();
         rBVegano = new javax.swing.JRadioButton();
         rBVegetariano = new javax.swing.JRadioButton();
@@ -92,6 +87,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         rBOrganico = new javax.swing.JRadioButton();
         btnCambiarFoto = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        etiquetaErrorNacimiento = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1147, 784));
 
@@ -125,11 +121,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
                 cajaNombreFocusLost(evt);
             }
         });
-        cajaNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaNombreActionPerformed(evt);
-            }
-        });
         panelEditarPerfilUsuario.add(cajaNombre);
         cajaNombre.setBounds(480, 80, 160, 35);
 
@@ -158,11 +149,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
                 cajaAlturaFocusLost(evt);
             }
         });
-        cajaAltura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaAlturaActionPerformed(evt);
-            }
-        });
         panelEditarPerfilUsuario.add(cajaAltura);
         cajaAltura.setBounds(480, 330, 160, 35);
 
@@ -177,11 +163,11 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
 
         etiquetaMedidaPeso.setText("Kg");
         panelEditarPerfilUsuario.add(etiquetaMedidaPeso);
-        etiquetaMedidaPeso.setBounds(650, 330, 24, 26);
+        etiquetaMedidaPeso.setBounds(650, 330, 20, 14);
 
         etiquetaMedidaAltura.setText("Cm");
         panelEditarPerfilUsuario.add(etiquetaMedidaAltura);
-        etiquetaMedidaAltura.setBounds(650, 280, 31, 26);
+        etiquetaMedidaAltura.setBounds(650, 290, 30, 14);
 
         btnAceptarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnAceptarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -209,13 +195,8 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         etiquetaNacionalidadUsuario.setBounds(330, 180, 160, 29);
 
         listaNacionalidadesUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaNacionalidadesUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaNacionalidadesUsuarioActionPerformed(evt);
-            }
-        });
         panelEditarPerfilUsuario.add(listaNacionalidadesUsuario);
-        listaNacionalidadesUsuario.setBounds(480, 180, 160, 35);
+        listaNacionalidadesUsuario.setBounds(480, 180, 160, 37);
 
         etiquetaSexo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaSexo.setText("Sexo:");
@@ -269,7 +250,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             }
         });
         panelEditarPerfilUsuario.add(checkBoxIntoleranteLactosa);
-        checkBoxIntoleranteLactosa.setBounds(590, 410, 285, 37);
+        checkBoxIntoleranteLactosa.setBounds(590, 410, 271, 37);
 
         checkBoxDiabetico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         checkBoxDiabetico.setText("Diabético");
@@ -299,19 +280,19 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
 
         etiquetaErrorApellido.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelEditarPerfilUsuario.add(etiquetaErrorApellido);
-        etiquetaErrorApellido.setBounds(660, 130, 370, 30);
+        etiquetaErrorApellido.setBounds(660, 130, 400, 30);
 
         etiquetaErrorNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelEditarPerfilUsuario.add(etiquetaErrorNombreUsuario);
-        etiquetaErrorNombreUsuario.setBounds(660, 180, 390, 30);
+        etiquetaErrorNombreUsuario.setBounds(660, 180, 400, 30);
 
         etiquetaErrorAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelEditarPerfilUsuario.add(etiquetaErrorAltura);
-        etiquetaErrorAltura.setBounds(790, 330, 230, 0);
+        etiquetaErrorAltura.setBounds(670, 280, 390, 30);
 
         etiquetaErrorPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelEditarPerfilUsuario.add(etiquetaErrorPeso);
-        etiquetaErrorPeso.setBounds(790, 380, 310, 0);
+        etiquetaErrorPeso.setBounds(670, 330, 390, 30);
 
         etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelEditarPerfilUsuario.add(etiquetaMensajeAlAceptar);
@@ -330,11 +311,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             }
         });
         panelEditarPerfilUsuario.add(fechaNacimiento);
-        fechaNacimiento.setBounds(480, 230, 160, 32);
-
-        etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorFechaNacimiento);
-        etiquetaErrorFechaNacimiento.setBounds(660, 280, 310, 0);
+        fechaNacimiento.setBounds(480, 230, 160, 30);
 
         etiquetaPreferencias.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaPreferencias.setText("Preferencias:");
@@ -410,6 +387,10 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         panelEditarPerfilUsuario.add(btnVolver);
         btnVolver.setBounds(30, 10, 100, 80);
 
+        etiquetaErrorNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        panelEditarPerfilUsuario.add(etiquetaErrorNacimiento);
+        etiquetaErrorNacimiento.setBounds(670, 230, 390, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -435,28 +416,28 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     private void cajaNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreFocusLost
         String nombre = cajaNombre.getText();
         if (nombre.trim().isEmpty()) {
-            etiquetaErrorNombre.setText("El nombre no puede ser vacío");
+            etiquetaErrorNombre.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaNombreFocusLost
 
     private void cajaApellidosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaApellidosFocusLost
         String apellido = cajaApellidos.getText();
         if (apellido.trim().isEmpty()) {
-            etiquetaErrorApellido.setText("El apellido no puede ser vacío");
+            etiquetaErrorApellido.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaApellidosFocusLost
 
     private void cajaAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaAlturaFocusLost
         String altura = cajaAltura.getText();
         if (altura.trim().isEmpty()) {
-            etiquetaErrorAltura.setText("La altura no puede estar vacía");
+            etiquetaErrorAltura.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaAlturaFocusLost
 
     private void cajaPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaPesoFocusLost
         String peso = cajaPeso.getText();
         if (peso.trim().isEmpty()) {
-            etiquetaErrorAltura.setText("El peso no puede estar vacío");
+            etiquetaErrorAltura.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaPesoFocusLost
 
@@ -488,19 +469,19 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         } else {
             etiquetaMensajeAlAceptar.setText("Error al editar el usuario");
             if (nombreValido == false) {
-                etiquetaErrorNombre.setText("El nombre no puede ser vacío");
+                etiquetaErrorNombre.setText("Debe completar este campo");
             }
             if (apellidoValido == false) {
-                etiquetaErrorApellido.setText("El apellido no puede ser vacío");
+                etiquetaErrorApellido.setText("Debe completar este campo");
             }
             if (fNacimientoValido == false) {
-                etiquetaErrorFechaNacimiento.setText("Fecha de nacimiento no válida");
+                etiquetaErrorNacimiento.setText("Debe completar este campo");
             }
             if (altura == false) {
-                 etiquetaErrorAltura.setText("La altura no puede estar vacía");
+                etiquetaErrorAltura.setText("Debe completar este campo");
             }
             if (peso == false) {
-                 etiquetaErrorPeso.setText("El peso no puede estar vacío");
+                etiquetaErrorPeso.setText("Debe completar este campo");
             }
         }
     }//GEN-LAST:event_btnAceptarUsuarioActionPerformed
@@ -514,9 +495,8 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_rBtnFemeninoUsuarioActionPerformed
 
     private void fechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaNacimientoFocusLost
-        //Metodo para validar que se seleccione la fecha de nacimiento 
         if (fechaNacimiento.getCalendar() == null) {
-            etiquetaErrorFechaNacimiento.setText("Debe ingresar una fecha");
+            etiquetaErrorNacimiento.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_fechaNacimientoFocusLost
 
@@ -535,10 +515,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     private void rBMacrobioticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBMacrobioticoActionPerformed
         usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Macrobiotico);
     }//GEN-LAST:event_rBMacrobioticoActionPerformed
-
-    private void listaNacionalidadesUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaNacionalidadesUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaNacionalidadesUsuarioActionPerformed
 
     private void rBVeganoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBVeganoActionPerformed
         usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Vegano);
@@ -563,14 +539,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxDiabeticoActionPerformed
-
-    private void cajaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaNombreActionPerformed
-
-    private void cajaAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaAlturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaAlturaActionPerformed
 
     private void btnCambiarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarFotoActionPerformed
         JFileChooser fileChooser = new JFileChooser();
@@ -623,7 +591,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel etiquetaApellidos;
     private javax.swing.JLabel etiquetaErrorAltura;
     private javax.swing.JLabel etiquetaErrorApellido;
-    private javax.swing.JLabel etiquetaErrorFechaNacimiento;
+    private javax.swing.JLabel etiquetaErrorNacimiento;
     private javax.swing.JLabel etiquetaErrorNombre;
     private javax.swing.JLabel etiquetaErrorNombreUsuario;
     private javax.swing.JLabel etiquetaErrorPeso;

@@ -1,23 +1,36 @@
 package interfaz;
 
+import dominio.PlanDeAlimentacion;
 import dominio.Sistema;
+import dominio.Usuario;
 import javax.swing.JFrame;
 
 public class PanelHomeUsuario extends javax.swing.JPanel {
 
-    //Atrubutos
     private Sistema sistema;
-    private InterfazBotonesUsuario interfaz;
+    private static InterfazBotonesUsuario interfaz;
     private JFrame ventana;
+    private Usuario usuarioActual;
+    private PlanDeAlimentacion usuarioPlan;
 
-    //Constructor
-    public PanelHomeUsuario(Sistema unSistema, InterfazBotonesUsuario unaInterfaz, JFrame unaVentana) {
+    public PanelHomeUsuario(Sistema unSistema,
+            InterfazBotonesUsuario unaInterfaz, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
         interfaz = unaInterfaz;
         ventana = unaVentana;
-        listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaLunes().toArray());
+        usuarioActual = interfaz.getUsuarioActual();
+        usuarioPlan = usuarioActual.getPlan();
+        listaComidasPlan.setListData(usuarioPlan.getListaLunes().toArray());
 
+    }
+
+    public static InterfazBotonesUsuario getInterfaz() {
+        return interfaz;
+    }
+
+    public void setActual(InterfazBotonesUsuario interfaz) {
+        this.interfaz = interfaz;
     }
 
     @SuppressWarnings("unchecked")
@@ -54,13 +67,8 @@ public class PanelHomeUsuario extends javax.swing.JPanel {
                 listaDiasDeLaSemanaItemStateChanged(evt);
             }
         });
-        listaDiasDeLaSemana.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaDiasDeLaSemanaActionPerformed(evt);
-            }
-        });
         add(listaDiasDeLaSemana);
-        listaDiasDeLaSemana.setBounds(310, 110, 140, 35);
+        listaDiasDeLaSemana.setBounds(310, 110, 141, 35);
 
         etiquetaComidasDelDia.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaComidasDelDia.setText("Comidas del dia:");
@@ -83,44 +91,41 @@ public class PanelHomeUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listaDiasDeLaSemanaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaDiasDeLaSemanaItemStateChanged
-        if (interfaz.getUsuarioActual().getPlan() != null) {
+        if (usuarioPlan != null) {
             actualizarLista();
         }
     }//GEN-LAST:event_listaDiasDeLaSemanaItemStateChanged
 
     private void btnHistorialDeComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialDeComidasActionPerformed
         ventana.remove(this);
-        PanelHistorialDeComidasUsuario nuevo = new PanelHistorialDeComidasUsuario(sistema, ventana, interfaz);
+        PanelHistorialDeComidasUsuario nuevo
+                = new PanelHistorialDeComidasUsuario(sistema, ventana, interfaz);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnHistorialDeComidasActionPerformed
 
-    private void listaDiasDeLaSemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDiasDeLaSemanaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaDiasDeLaSemanaActionPerformed
-
     void actualizarLista() {
         if (listaDiasDeLaSemana.getSelectedItem().equals("lunes")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaLunes().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaLunes().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("martes")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaMartes().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaMartes().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("miercoles")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaMiercoles().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaMiercoles().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("jueves")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaJueves().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaJueves().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("viernes")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaViernes().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaViernes().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("sabado")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaSabado().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaSabado().toArray());
         }
         if (listaDiasDeLaSemana.getSelectedItem().equals("domingo")) {
-            listaComidasPlan.setListData(interfaz.getUsuarioActual().getPlan().getListaDomingo().toArray());
+            listaComidasPlan.setListData(usuarioPlan.getListaDomingo().toArray());
         }
     }
 

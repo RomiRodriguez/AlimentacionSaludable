@@ -1,15 +1,11 @@
 package interfaz;
 
 import dominio.Sistema;
-import alimentacionsaludable.AlimentacionSaludable;
-import java.io.IOException;
 
 public class PanelPrincipal extends javax.swing.JFrame {
 
-    //Atributos
     Sistema sistema;
 
-    //Constructor
     public PanelPrincipal(Sistema unSistema) {
         initComponents();
         sistema = unSistema;
@@ -42,7 +38,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public void setSistema(Sistema sistema) {
         this.sistema = sistema;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

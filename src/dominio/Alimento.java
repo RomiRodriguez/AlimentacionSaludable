@@ -1,12 +1,10 @@
 package dominio;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.Optional;
 
 public class Alimento implements Serializable {
 
-    //Atrubutos
     private static final long serialVersionUID = 6106269076155338045L;
     private String nombre;
     private TipoAlimento tipo;
@@ -14,21 +12,18 @@ public class Alimento implements Serializable {
     private Nutrientes[] listaEnumNutrientes = inicializoEnumNutrientes();
     private boolean[] listaNutrientesSeleccionados;
 
-    //Constructor
     public Alimento() {
         this.nombre = "sin nombre";
         this.tipo = TipoAlimento.Otro;
-        this.listaNutrientesSeleccionados = new boolean[listaEnumNutrientes
-                                                        .length];
+        this.listaNutrientesSeleccionados = new boolean[listaEnumNutrientes.length];
     }
 
-    //Metodos de la clase Aliemntos
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
-        if(!nombre.trim().isEmpty()){
+        if (!nombre.trim().isEmpty()) {
             this.nombre = nombre;
         }
     }
@@ -57,8 +52,7 @@ public class Alimento implements Serializable {
         return lista;
     }
 
-    public void setListaEnumTipoAlimento(TipoAlimento[]
-                                         listaEnumTipoAlimento) {
+    public void setListaEnumTipoAlimento(TipoAlimento[] listaEnumTipoAlimento) {
         this.listaEnumTipoAlimento = Optional
                 .ofNullable(listaEnumTipoAlimento)
                 .orElse(null);
@@ -69,8 +63,7 @@ public class Alimento implements Serializable {
         return lista;
     }
 
-    public void setListaNutrientesSeleccionados(boolean[]
-                                                listaNutrientesSeleccionados) {
+    public void setListaNutrientesSeleccionados(boolean[] listaNutrientesSeleccionados) {
         this.listaNutrientesSeleccionados = Optional
                 .ofNullable(listaNutrientesSeleccionados)
                 .orElse(null);
@@ -110,7 +103,6 @@ public class Alimento implements Serializable {
         return listaEnumPivot;
     }
 
-    //redefino toString
     @Override
     public String toString() {
         return nombre;
@@ -120,7 +112,5 @@ public class Alimento implements Serializable {
     public int hashCode() {
         int hash = 7;
         return hash;
-    } 
-    
-
+    }
 }

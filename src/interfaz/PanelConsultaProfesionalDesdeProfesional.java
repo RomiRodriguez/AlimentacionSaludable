@@ -1,28 +1,29 @@
 package interfaz;
 
 import dominio.Mensaje;
+import dominio.Profesional;
 import dominio.Sistema;
 import javax.swing.JFrame;
 
 public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel {
 
-    //Atrubutos
     private Sistema sistema;
     private InterfazBotonesProfesional interfaz;
     private JFrame ventana;
     private Mensaje mensajeSeleccionado;
+    private Profesional profesional;
 
-    //Constructor
     public PanelConsultaProfesionalDesdeProfesional(Sistema unSistema,
             InterfazBotonesProfesional interfazActual, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
         interfaz = interfazActual;
         ventana = unaVentana;
-        listaMensajes.setListData(interfaz.getUsuarioActivo().getCasillaDeEntrada().toArray());
+        profesional = interfaz.getUsuarioActivo();
+        listaMensajes.setListData(profesional.getCasillaDeEntrada().toArray());
         textoLeerMensaje.setEditable(false);
         mensajeSeleccionado = null;
-        if(sistema.getListaUsuarios().size()<1){
+        if (sistema.getListaUsuarios().size() < 1) {
             btnRedactar.setEnabled(false);
         }
     }
@@ -125,7 +126,8 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
 
     private void btnRedactarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedactarActionPerformed
         ventana.remove(this);
-        PanelRedactarConsultaDesdeProfesional nuevo = new PanelRedactarConsultaDesdeProfesional(sistema, interfaz, ventana);
+        PanelRedactarConsultaDesdeProfesional nuevo
+                = new PanelRedactarConsultaDesdeProfesional(sistema, interfaz, ventana);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
@@ -142,12 +144,11 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         if (mensajeSeleccionado != null) {
             mensajeSeleccionado = (Mensaje) listaMensajes.getSelectedValue();
             textoLeerMensaje.setText("");
-            interfaz.getUsuarioActivo().getCasillaDeEntrada().remove(mensajeSeleccionado);
+            profesional.getCasillaDeEntrada().remove(mensajeSeleccionado);
             mensajeSeleccionado = null;
-            listaMensajes.setListData(interfaz.getUsuarioActivo().getCasillaDeEntrada().toArray());
+            listaMensajes.setListData(profesional.getCasillaDeEntrada().toArray());
         }
     }//GEN-LAST:event_btnBorrarConsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarCons;

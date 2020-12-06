@@ -1,6 +1,5 @@
 package interfaz;
 
-import dominio.Persona;
 import dominio.Profesional;
 import dominio.Usuario;
 import dominio.Sistema;
@@ -15,7 +14,6 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
     private InterfazBotonesUsuario interfazUsr = null;
     private InterfazBotonesAdministrador interfazAdm = null;
 
-    //constructor desde Profesional
     public PanelCambioDeUsuario(JFrame unaVentana,
             Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz) {
@@ -27,7 +25,6 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         actualizarLista();
     }
 
-    //constructor desde Usuario
     public PanelCambioDeUsuario(JFrame unaVentana,
             Sistema unSistema,
             InterfazBotonesUsuario unaInterfaz) {
@@ -39,7 +36,6 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         actualizarLista();
     }
 
-    //constructor desde Administrador
     public PanelCambioDeUsuario(JFrame unaVentana,
             Sistema unSistema,
             InterfazBotonesAdministrador unaInterfaz) {
@@ -51,7 +47,6 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         actualizarLista();
     }
 
-    //constructor para comenzar la aplicacion
     public PanelCambioDeUsuario(JFrame unaVentana,
             Sistema unSistema) {
         initComponents();
@@ -181,11 +176,14 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
     private void listaTiposDeUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTiposDeUsuariosActionPerformed
         actualizarLista();
     }//GEN-LAST:event_listaTiposDeUsuariosActionPerformed
+
     void actualizarLista() {
-        if (sistema.getListaUsuarios().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Usuario) {
+        if (sistema.getListaUsuarios().size() < 1
+                && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Usuario) {
             btnCambiarUsuario.setEnabled(false);
         } else {
-            if (sistema.getListaProfesionales().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Profesional) {
+            if (sistema.getListaProfesionales().size() < 1
+                    && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Profesional) {
                 btnCambiarUsuario.setEnabled(false);
             } else {
                 btnCambiarUsuario.setEnabled(true);

@@ -1,7 +1,6 @@
 package interfaz;
 
 import dominio.Mensaje;
-import dominio.Profesional;
 import dominio.Sistema;
 import dominio.Usuario;
 import javax.swing.DefaultComboBoxModel;
@@ -9,12 +8,10 @@ import javax.swing.JFrame;
 
 public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private InterfazBotonesProfesional interfazProf;
     private JFrame ventana;
 
-    //Constructor para profesional
     public PanelRedactarConsultaDesdeProfesional(Sistema unSistema,
             InterfazBotonesProfesional interfazActual, JFrame unaVentana) {
         initComponents();
@@ -125,7 +122,8 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
 
     private void btnVolverConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverConsultasActionPerformed
         ventana.remove(this);
-        PanelConsultaProfesionalDesdeProfesional nuevo = new PanelConsultaProfesionalDesdeProfesional(sistema, interfazProf, ventana);
+        PanelConsultaProfesionalDesdeProfesional nuevo
+                = new PanelConsultaProfesionalDesdeProfesional(sistema, interfazProf, ventana);
         interfazProf.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
@@ -141,7 +139,6 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         destino.getCasillaDeEntrada().add(mensajeAEnviar);
         etiquetaMensajeEnviado.setText("Mensaje enviado correctamente");
     }//GEN-LAST:event_btnEnviarConsultaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviarConsulta;

@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 
 public class Sistema implements Serializable {
 
-    //Atributos
     private static final long serialVersionUID = 6106269076155338045L;
     ArrayList<Alimento> listaAlimentos;
     ArrayList<Usuario> listaUsuarios;
@@ -22,7 +21,6 @@ public class Sistema implements Serializable {
     tipoUsuario[] listaTiposDeUsuario;
     tipoUsuario usuarioActivo;
 
-    //Cosntructor
     public Sistema(ArrayList<Alimento> listaAlimentos,
             ArrayList<Usuario> listaUsuarios,
             ArrayList<Profesional> listaProfesionales,
@@ -41,7 +39,6 @@ public class Sistema implements Serializable {
         this.usuarioActivo = tipoUsuario.NoSeleccionado;
         this.listaTiposDeUsuario = inicializoListaTiposDeUsuario();
     }
-    //Metodos de la clase sistema
 
     public tipoUsuario[] getListaTiposDeUsuario() {
         tipoUsuario[] lista = listaTiposDeUsuario;
@@ -90,14 +87,12 @@ public class Sistema implements Serializable {
         Profesional, Usuario, NoSeleccionado
     }
 
-    //Metodo para inicializar lista de enums de tipo de usuario
     tipoUsuario[] inicializoListaTiposDeUsuario() {
         tipoUsuario[] listaPivot = {tipoUsuario.Profesional,
             tipoUsuario.Usuario};
         return listaPivot;
     }
 
-    //CARGAR Y GUARDAR SISTEMA
     public void cargarSistema() {
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("sis.ser"));
@@ -109,9 +104,9 @@ public class Sistema implements Serializable {
             listaProfesionales = listProfesionales;
             in.close();
         } catch (Exception ex) {
-            listaAlimentos = new ArrayList<Alimento>();
-            listaUsuarios = new ArrayList<Usuario>();
-            listaProfesionales = new ArrayList<Profesional>();
+            listaAlimentos = new ArrayList<>();
+            listaUsuarios = new ArrayList<>();
+            listaProfesionales = new ArrayList<>();
         }
     }
 
@@ -127,22 +122,14 @@ public class Sistema implements Serializable {
         }
     }
 
-    //Metodo para validarque el dato sea numericoF
     public boolean pidoDatoNumerico(int dato, int min, int max) {
-        int datoAVerificar = 0;
         boolean pidiendo = false;
-        try {
-            datoAVerificar = dato;
-            if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
-                pidiendo = true;
-            }
-        } catch (NumberFormatException ex) {
-
+        if (dato >= min && dato <= max) {
+            pidiendo = true;
         }
         return pidiendo;
     }
 
-    //Metodo que adapta el tamaño de la imagen al deseado
     ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width,
             Integer height) {
         BufferedImage bufferedImage = new BufferedImage(width, height,
@@ -154,9 +141,8 @@ public class Sistema implements Serializable {
     }
 
     void registroUsuario(String unNombre, String unApellido, String unUsuario,
-            String unSexo, String unaFechaNacimiento,
-            double unaAltura, ImageIcon unaFotoPerfil,
-            double unPeso,
+            String unaContrasenia, String unSexo, String unaFechaNacimiento,
+            double unaAltura, ImageIcon unaFotoPerfil, double unPeso,
             Usuario.Nacionalidades unaNacionalidad) {
         Usuario usuario = new Usuario();
         usuario.setNombre(unNombre);
@@ -174,13 +160,10 @@ public class Sistema implements Serializable {
     }
 
     public void registroProfesional(String unNombre, String unApellido,
-            String unNombreUsuario,
-            String unNombreTitulo,
-            Profesional.Pais unPais,
-            ImageIcon unaFotoPerfil,
-            String unaFechaNacimiento,
-            String unaFechaGraduacion,
-            Profesional.Pais unPaisTitulo) {
+            String unaContrasenia, String unNombreUsuario,
+            String unNombreTitulo, Profesional.Pais unPais,
+            ImageIcon unaFotoPerfil, String unaFechaNacimiento,
+            String unaFechaGraduacion, Profesional.Pais unPaisTitulo) {
         Profesional profesional = new Profesional();
         profesional.setNombre(unNombre);
         profesional.setApellidos(unApellido);

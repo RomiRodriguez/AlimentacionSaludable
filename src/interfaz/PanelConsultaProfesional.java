@@ -3,29 +3,30 @@ package interfaz;
 import dominio.Sistema;
 import javax.swing.JFrame;
 import dominio.Mensaje;
+import dominio.Usuario;
 
 public class PanelConsultaProfesional extends javax.swing.JPanel {
 
-    //Atrubutos
     private Sistema sistema;
     private InterfazBotonesUsuario interfaz;
     private JFrame ventana;
     private Mensaje mensajeSeleccionado;
+    private Usuario usuarioActual;
 
-    //Constructor
     public PanelConsultaProfesional(Sistema unSistema,
             InterfazBotonesUsuario interfazActual, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
         interfaz = interfazActual;
         ventana = unaVentana;
-        listaMensajes.setListData(interfaz.getUsuarioActual().getCasillaDeEntrada().toArray());
+        usuarioActual = interfaz.getUsuarioActual();
+        listaMensajes.setListData(usuarioActual.getCasillaDeEntrada().toArray());
         if (interfaz.getUsuarioActual().getCasillaDeEntrada().size() > 0) {
             listaMensajes.setSelectedIndex(0);
         }
         mensajeSeleccionado = null;
         textoLeerMensaje.setEditable(false);
-        if(sistema.getListaProfesionales().size()<1){
+        if (sistema.getListaProfesionales().size() < 1) {
             btnRedactar.setEnabled(false);
         }
     }
@@ -73,11 +74,6 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         jScrollPane1.setBounds(60, 160, 547, 347);
 
         listaMensajes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaMensajes.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                listaMensajesFocusGained(evt);
-            }
-        });
         listaMensajes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listaMensajesValueChanged(evt);
@@ -135,17 +131,13 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         ventana.pack();
     }//GEN-LAST:event_btnRedactarActionPerformed
 
-    private void listaMensajesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_listaMensajesFocusGained
-
-    }//GEN-LAST:event_listaMensajesFocusGained
-
     private void btnBorrarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarConsActionPerformed
         if (mensajeSeleccionado != null) {
             mensajeSeleccionado = (Mensaje) listaMensajes.getSelectedValue();
             textoLeerMensaje.setText("");
-            interfaz.getUsuarioActual().getCasillaDeEntrada().remove(mensajeSeleccionado);
+            usuarioActual.getCasillaDeEntrada().remove(mensajeSeleccionado);
             mensajeSeleccionado = null;
-            listaMensajes.setListData(interfaz.getUsuarioActual().getCasillaDeEntrada().toArray());
+            listaMensajes.setListData(usuarioActual.getCasillaDeEntrada().toArray());
         }
     }//GEN-LAST:event_btnBorrarConsActionPerformed
 
@@ -156,7 +148,6 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
             textoLeerMensaje.setText(textoMensaje);
         }
     }//GEN-LAST:event_listaMensajesValueChanged
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarCons;

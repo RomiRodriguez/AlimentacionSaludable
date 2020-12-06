@@ -2,7 +2,6 @@ package interfaz;
 
 import dominio.Sistema;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class PanelRegistrar extends javax.swing.JPanel {
 
@@ -42,12 +41,14 @@ public class PanelRegistrar extends javax.swing.JPanel {
         etiquetaEstaRegistrado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaEstaRegistrado.setText("¿Ya está registrado?");
         jPanel.add(etiquetaEstaRegistrado);
-        etiquetaEstaRegistrado.setBounds(340, 520, 290, 29);
+        etiquetaEstaRegistrado.setBounds(370, 520, 230, 29);
 
         btnIngresar.setBackground(new java.awt.Color(255, 255, 255));
         btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 0, 102));
         btnIngresar.setText("Ingrese");
+        btnIngresar.setBorder(null);
+        btnIngresar.setBorderPainted(false);
         btnIngresar.setContentAreaFilled(false);
         btnIngresar.setOpaque(true);
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +57,7 @@ public class PanelRegistrar extends javax.swing.JPanel {
             }
         });
         jPanel.add(btnIngresar);
-        btnIngresar.setBounds(610, 520, 250, 30);
+        btnIngresar.setBounds(620, 520, 100, 30);
 
         btnRegistroProfesional.setBackground(new java.awt.Color(255, 0, 102));
         btnRegistroProfesional.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -119,7 +120,6 @@ public class PanelRegistrar extends javax.swing.JPanel {
         ventana.add(new PanelRegistroUsuario(sistema, ventana));
         ventana.pack();
     }//GEN-LAST:event_btnRegistroUsuarioActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;

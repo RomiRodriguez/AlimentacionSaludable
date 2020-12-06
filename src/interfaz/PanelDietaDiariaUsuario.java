@@ -5,19 +5,18 @@ import dominio.ComidaPorDia;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class PanelDietaDiariaUsuario extends javax.swing.JPanel {
 
-    //Atrubutos
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
     private boolean deboActualizar;
+    private Usuario usuarioActual;
+    private ComidaPorDia actualHistorialDelDia;
+    private String actualFechaUltimaAdicion;
 
-    //Constructor
     public PanelDietaDiariaUsuario(Sistema unSistema,
             JFrame unaVentana,
             InterfazBotonesUsuario unaInterfaz) {
@@ -25,19 +24,23 @@ public class PanelDietaDiariaUsuario extends javax.swing.JPanel {
         sistema = unSistema;
         ventana = unaVentana;
         interfaz = unaInterfaz;
+        usuarioActual = interfaz.getUsuarioActual();
+        actualHistorialDelDia = usuarioActual.getHistorialDelDia();
+        actualFechaUltimaAdicion = usuarioActual.getFechaUltimaAdicion();
         LocalDate diaActual = LocalDate.now();
-        interfaz.getUsuarioActual().setFechaUltimaAdicion(diaActual.toString());
-        if (interfaz.getUsuarioActual().getHistorialDelDia().getFecha() == null) {
-            interfaz.getUsuarioActual().getHistorialDelDia().setFecha(diaActual.toString());
+        usuarioActual.setFechaUltimaAdicion(diaActual.toString());
+        if (actualHistorialDelDia.getFecha() == null) {
+            actualHistorialDelDia.setFecha(diaActual.toString());
         } else {
-            if (!interfaz.getUsuarioActual().getHistorialDelDia().getFecha().equals(interfaz.getUsuarioActual().getFechaUltimaAdicion()) && !interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().isEmpty()) {
-                interfaz.getUsuarioActual().getHistorialComidas().add(interfaz.getUsuarioActual().getHistorialDelDia());
+            if (!actualHistorialDelDia.getFecha().equals(actualFechaUltimaAdicion)
+                    && !actualHistorialDelDia.getComidasIngeridas().isEmpty()) {
+                usuarioActual.getHistorialComidas().add(actualHistorialDelDia);
                 ComidaPorDia nuevoHistorial = new ComidaPorDia();
                 nuevoHistorial.setFecha(diaActual.toString());
-                interfaz.getUsuarioActual().setHistorialDelDia(nuevoHistorial);
+                usuarioActual.setHistorialDelDia(nuevoHistorial);
             }
         }
-        listaComidasDiarias.setListData(interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().toArray());
+        listaComidasDiarias.setListData(actualHistorialDelDia.getComidasIngeridas().toArray());
     }
 
     @SuppressWarnings("unchecked")
@@ -84,7 +87,7 @@ public class PanelDietaDiariaUsuario extends javax.swing.JPanel {
         etiquetaBtnQuitarComida.setBackground(new java.awt.Color(255, 0, 102));
         etiquetaBtnQuitarComida.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaBtnQuitarComida.setForeground(new java.awt.Color(255, 255, 255));
-        etiquetaBtnQuitarComida.setText("Quitar Comdia");
+        etiquetaBtnQuitarComida.setText("Quitar Comida");
         etiquetaBtnQuitarComida.setContentAreaFilled(false);
         etiquetaBtnQuitarComida.setOpaque(true);
         etiquetaBtnQuitarComida.addActionListener(new java.awt.event.ActionListener() {
@@ -110,20 +113,20 @@ public class PanelDietaDiariaUsuario extends javax.swing.JPanel {
     private void etiquetaBtnQuitarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetaBtnQuitarComidaActionPerformed
         if (listaComidasDiarias.getSelectedValue() != null) {
             Alimento alimentoABorrar = (Alimento) listaComidasDiarias.getSelectedValue();
-            int diaActual = interfaz.getUsuarioActual().getHistorialComidas().size();
-            interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().remove(alimentoABorrar);
-            listaComidasDiarias.setListData(interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().toArray());
+            int diaActual = usuarioActual.getHistorialComidas().size();
+            actualHistorialDelDia.getComidasIngeridas().remove(alimentoABorrar);
+            listaComidasDiarias.setListData(actualHistorialDelDia.getComidasIngeridas().toArray());
         }
     }//GEN-LAST:event_etiquetaBtnQuitarComidaActionPerformed
 
     private void etiquetaBtnAgregarComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetaBtnAgregarComidasActionPerformed
         ventana.remove(this);
-        PanelAgregarComidasADietaDiariaUsuario nuevo = new PanelAgregarComidasADietaDiariaUsuario(sistema, ventana, interfaz);
+        PanelAgregarComidasADietaDiariaUsuario nuevo
+                = new PanelAgregarComidasADietaDiariaUsuario(sistema, ventana, interfaz);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_etiquetaBtnAgregarComidasActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton etiquetaBtnAgregarComidas;

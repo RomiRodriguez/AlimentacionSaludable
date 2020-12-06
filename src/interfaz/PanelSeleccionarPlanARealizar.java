@@ -1,6 +1,5 @@
 package interfaz;
 
-import dominio.PlanDeAlimentacion;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ public class PanelSeleccionarPlanARealizar extends javax.swing.JPanel {
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesProfesional interfaz;
+    private ArrayList<Usuario> usuarios;
 
     public PanelSeleccionarPlanARealizar(Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz,
@@ -19,6 +19,7 @@ public class PanelSeleccionarPlanARealizar extends javax.swing.JPanel {
         interfaz = unaInterfaz;
         sistema = unSistema;
         ventana = unaVentana;
+        usuarios = sistema.getListaUsuarios();
         listaUsuarios.setListData(listaConPlanARealizar().toArray());
     }
 
@@ -63,9 +64,10 @@ public class PanelSeleccionarPlanARealizar extends javax.swing.JPanel {
 
     private void btnRealizarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarPlanActionPerformed
         if (listaUsuarios.getSelectedValue() != null) {
-            Usuario usuarioAModificar = sistema.getListaUsuarios().get(listaUsuarios.getSelectedIndex());
+            Usuario usuarioAModificar = usuarios.get(listaUsuarios.getSelectedIndex());
             ventana.remove(this);
-            PanelRealizarPlanAlimentacion nuevo = new PanelRealizarPlanAlimentacion(sistema, interfaz, ventana, usuarioAModificar);
+            PanelRealizarPlanAlimentacion nuevo
+                    = new PanelRealizarPlanAlimentacion(sistema, interfaz, ventana, usuarioAModificar);
             interfaz.setActual(nuevo);
             ventana.add(nuevo);
             ventana.pack();
@@ -74,10 +76,11 @@ public class PanelSeleccionarPlanARealizar extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRealizarPlanActionPerformed
 
     ArrayList<Usuario> listaConPlanARealizar() {
-        ArrayList<Usuario> retorno = new ArrayList<Usuario>();
-        for (int i = 0; i < sistema.getListaUsuarios().size(); i++) {
-            if (sistema.getListaUsuarios().get(i).isNecesitoPlan() && sistema.getListaUsuarios().get(i).getProfesionalAsignado().equals(interfaz.getUsuarioActivo())) {
-                retorno.add(sistema.getListaUsuarios().get(i));
+        ArrayList<Usuario> retorno = new ArrayList<>();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).isNecesitoPlan()
+                    && usuarios.get(i).getProfesionalAsignado().equals(interfaz.getUsuarioActivo())) {
+                retorno.add(usuarios.get(i));
             }
         }
         return retorno;

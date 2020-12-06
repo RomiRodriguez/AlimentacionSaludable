@@ -1,6 +1,5 @@
 package interfaz;
 
-import dominio.Persona;
 import dominio.Sistema;
 import dominio.Profesional;
 import dominio.Usuario;
@@ -15,12 +14,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class PanelRegistroProfesional extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private Profesional prof;
     private JFrame ventana;
 
-    //Constructor
     public PanelRegistroProfesional(Sistema unSistema, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
@@ -135,11 +132,6 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
                 cajaApellidosProfFocusLost(evt);
             }
         });
-        cajaApellidosProf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaApellidosProfActionPerformed(evt);
-            }
-        });
         panelRegProf.add(cajaApellidosProf);
         cajaApellidosProf.setBounds(560, 170, 160, 35);
 
@@ -192,11 +184,11 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
 
         etiquetaErrorApellidoProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorApellidoProf);
-        etiquetaErrorApellidoProf.setBounds(720, 170, 400, 26);
+        etiquetaErrorApellidoProf.setBounds(740, 170, 400, 26);
 
         etiquetaErrorNombreUsuarioProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreUsuarioProf);
-        etiquetaErrorNombreUsuarioProf.setBounds(720, 220, 400, 26);
+        etiquetaErrorNombreUsuarioProf.setBounds(740, 220, 400, 26);
 
         etiquetaErrorNombreTituloProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreTituloProf);
@@ -280,7 +272,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
 
         etiquetaErrorContrasenia.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorContrasenia);
-        etiquetaErrorContrasenia.setBounds(720, 270, 400, 26);
+        etiquetaErrorContrasenia.setBounds(740, 270, 400, 26);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -307,7 +299,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     private void cajaNombreProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreProfFocusLost
         String nombre = cajaNombreProf.getText();
         if (nombre.trim().isEmpty()) {
-            etiquetaErrorNombreProf.setText("El nombre no puede ser vacío");
+            etiquetaErrorNombreProf.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaNombreProfFocusLost
 
@@ -323,7 +315,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         Usuario comparoUsuario = new Usuario();
         comparoUsuario.setNombreUsuario(nombreUsuario);
         if (nombreUsuario.trim().isEmpty()) {
-            etiquetaErrorNombreUsuarioProf.setText("El nombre de usuario no puede estar vacío");
+            etiquetaErrorNombreUsuarioProf.setText("Debe completar este campo");
         } else {
             if (sistema.getListaUsuarios().contains(comparoUsuario)
                     && sistema.getListaProfesionales().contains(comparoProf)) {
@@ -337,7 +329,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     private void cajaNombreTituloProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreTituloProfFocusLost
         String nombreTitulo = cajaNombreTituloProf.getText();
         if (nombreTitulo.trim().isEmpty()) {
-            etiquetaErrorNombreTituloProf.setText("El nombre del título no puede estar vacío");
+            etiquetaErrorNombreTituloProf.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_cajaNombreTituloProfFocusLost
 
@@ -348,16 +340,14 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVolverAIngresarActionPerformed
 
     private void fechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaNacimientoFocusLost
-        //Metodo para validar que se seleccione la fecha de nacimiento 
         if (fechaNacimiento.getCalendar() == null) {
-            etiquetaErrorFechaNacimiento.setText("Debe ingresar una fecha");
+            etiquetaErrorFechaNacimiento.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_fechaNacimientoFocusLost
 
     private void fechaGraduacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaGraduacionFocusLost
-        //Metodo para validar que se seleccione la fecha de graduacion 
         if (fechaGraduacion.getCalendar() == null) {
-            etiquetaErrorFechaGraduacion.setText("Debe ingresar una fecha");
+            etiquetaErrorFechaGraduacion.setText("Debe completar este campo");
         }
     }//GEN-LAST:event_fechaGraduacionFocusLost
 
@@ -374,10 +364,6 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         actualizar();
     }//GEN-LAST:event_btnCambiarFotoActionPerformed
 
-    private void cajaApellidosProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaApellidosProfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaApellidosProfActionPerformed
-
     private void btnAceptarProf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarProf1ActionPerformed
         Profesional profesional = new Profesional();
         boolean nombreValido = !cajaNombreProf.getText().trim().isEmpty();
@@ -389,13 +375,15 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         boolean nombreUsuarioValido = !cajaUsuarioProf.getText().trim().isEmpty()
                 && !sistema.getListaUsuarios().contains(comparoUsr)
                 && !sistema.getListaProfesionales().contains(comparoProf);
+        boolean apellidoValido = !cajaApellidosProf.getText().trim().isEmpty();
         boolean contraseniaValida = Profesional.ConstraseniaAlfanumerica(cajaContrasenia.getText())
                 && Profesional.ContraseniaTieneLargoMinimo(cajaContrasenia.getText());
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
         boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
-        if (nombreValido && nombreUsuarioValido && contraseniaValida
-                && fNacimientoValido && nombreTituloValido && fGraduacionValido) {
+        if (nombreValido && nombreUsuarioValido && apellidoValido
+                && contraseniaValida && fNacimientoValido
+                && nombreTituloValido && fGraduacionValido) {
             profesional.setNombre(cajaNombreProf.getText());
             profesional.setApellidos(cajaApellidosProf.getText());
             profesional.setNombreUsuario(cajaUsuarioProf.getText());
@@ -414,32 +402,50 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         } else {
             etiquetaMensajeAlAceptar.setText("Error al ingresar el profesional");
             if (nombreValido == false) {
-                etiquetaErrorNombreProf.setText("El nombre no puede ser vacío");
+                etiquetaErrorNombreProf.setText("Debe completar este campo");
             }
-            if (nombreUsuarioValido == false) {
-                etiquetaErrorNombreUsuarioProf.setText("Nombre de usuario no válido");
+            if (apellidoValido == false) {
+                etiquetaErrorApellidoProf.setText("Debe completar este campo");
             }
-            if (!Profesional.ConstraseniaAlfanumerica(cajaContrasenia.getText())) {
-                etiquetaErrorContrasenia.setText("Debe ser alfanumérica");
-            }
-            if (!Profesional.ContraseniaTieneLargoMinimo(cajaContrasenia.getText())) {
-                etiquetaErrorContrasenia.setText("Debe tener mínimo 8 caracteres");
-            }
+            ValidarNombreUsuario();
+            ValidarContrasenia();
             if (fNacimientoValido == false) {
-                etiquetaErrorFechaNacimiento.setText("Fecha de nacimiento no válida");
+                etiquetaErrorFechaNacimiento.setText("Debe completar este campo");
             }
             if (nombreTituloValido == false) {
-                etiquetaErrorNombreTituloProf.setText("El nombre no puede ser válida");
+                etiquetaErrorNombreTituloProf.setText("Debe completar este campo");
             }
             if (fGraduacionValido == false) {
-                etiquetaErrorFechaGraduacion.setText("Fecha de graduación no válida");
+                etiquetaErrorFechaGraduacion.setText("Debe completar este campo");
             }
         }
     }//GEN-LAST:event_btnAceptarProf1ActionPerformed
 
     private void cajaContraseniaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaContraseniaFocusLost
-        // TODO add your handling code here:
+        ValidarContrasenia();
     }//GEN-LAST:event_cajaContraseniaFocusLost
+
+    private void ValidarNombreUsuario() {
+        if (cajaUsuarioProf.getText().trim().isEmpty()) {
+            etiquetaErrorNombreUsuarioProf.setText("Debe completar este campo");
+        } else if (sistema.getListaUsuarios().contains(cajaUsuarioProf.getText())
+                || sistema.getListaProfesionales().contains(cajaUsuarioProf.getText())) {
+            etiquetaErrorNombreUsuarioProf.setText("El nombre de usuario ya está en uso");
+        }
+    }
+
+    private void ValidarContrasenia() {
+        String contrasenia = cajaContrasenia.getText();
+        if (contrasenia.trim().isEmpty()) {
+            etiquetaErrorContrasenia.setText("Debe completar este campo");
+        }
+        if (!Profesional.ConstraseniaAlfanumerica(contrasenia)) {
+            etiquetaErrorContrasenia.setText("Debe ser alfanumérica");
+        }
+        if (!Profesional.ContraseniaTieneLargoMinimo(contrasenia)) {
+            etiquetaErrorContrasenia.setText("Debe tener mínimo 8 caracteres");
+        }
+    }
 
     void actualizar() {
         fotoPerfil.setIcon(prof.getFotoPerfil());
@@ -453,6 +459,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
 
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarProf1;
     private javax.swing.JButton btnCambiarFoto;

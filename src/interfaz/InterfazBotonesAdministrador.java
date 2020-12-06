@@ -6,12 +6,10 @@ import javax.swing.JPanel;
 
 public class InterfazBotonesAdministrador extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private JPanel actual;
     private JFrame ventana;
 
-    //Cosntructor
     public InterfazBotonesAdministrador(Sistema unSistema, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
@@ -19,7 +17,8 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         actual = new PanelRegistroUsuario(sistema, ventana);
         ventana.add(this);
         ventana.add(actual);
- etiquetaUsuarioActual.setText(" Bienvenido, " + unSistema.getUsuarioActivo().name());
+        etiquetaUsuarioActual.setText(" Bienvenido, "
+                + unSistema.getUsuarioActivo().name());
     }
 
     public JPanel getActual() {
@@ -71,7 +70,7 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
             }
         });
         panelBotonesAdministrador.add(btnRegistrarUsuario);
-        btnRegistrarUsuario.setBounds(0, 30, 260, 50);
+        btnRegistrarUsuario.setBounds(0, 40, 250, 50);
 
         btnRegistrarProfesional.setBackground(new java.awt.Color(255, 0, 102));
         btnRegistrarProfesional.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -87,7 +86,7 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
             }
         });
         panelBotonesAdministrador.add(btnRegistrarProfesional);
-        btnRegistrarProfesional.setBounds(0, 110, 260, 50);
+        btnRegistrarProfesional.setBounds(0, 110, 250, 50);
 
         btnRegistrarAlimento.setBackground(new java.awt.Color(255, 0, 102));
         btnRegistrarAlimento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -103,7 +102,7 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
             }
         });
         panelBotonesAdministrador.add(btnRegistrarAlimento);
-        btnRegistrarAlimento.setBounds(0, 190, 260, 50);
+        btnRegistrarAlimento.setBounds(0, 180, 250, 50);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         fondo.setText("jLabel1");
@@ -134,7 +133,6 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         ventana.add(actual);
         ventana.pack();
     }//GEN-LAST:event_btnRegistrarAlimentoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarAlimento;

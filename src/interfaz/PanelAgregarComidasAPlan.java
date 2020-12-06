@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 
 public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private InterfazBotonesProfesional interfaz;
     private JFrame ventana;
@@ -17,7 +16,6 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
     private ArrayList<Alimento> listaAModificar;
     private PlanDeAlimentacion plan;
 
-    //Constructor
     public PanelAgregarComidasAPlan(Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz,
             JFrame unaVentana,
@@ -88,7 +86,8 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);
-        PanelRealizarPlanAlimentacion nuevo = new PanelRealizarPlanAlimentacion(sistema, interfaz, ventana, usuarioAModificar, plan);
+        PanelRealizarPlanAlimentacion nuevo = new PanelRealizarPlanAlimentacion(
+                sistema, interfaz, ventana, usuarioAModificar, plan);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
@@ -98,7 +97,6 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
         Alimento alimentoAAgregar = (Alimento) listaComidas.getSelectedValue();
         listaAModificar.add(alimentoAAgregar);
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;

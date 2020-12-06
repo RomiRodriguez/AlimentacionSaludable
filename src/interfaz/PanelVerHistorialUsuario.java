@@ -6,13 +6,11 @@ import javax.swing.JFrame;
 
 public class PanelVerHistorialUsuario extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
     private ComidaPorDia comidaActiva;
 
-    //Constructor
     public PanelVerHistorialUsuario(Sistema unSistema,
             JFrame unaVentana,
             InterfazBotonesUsuario unaInterfaz,
@@ -77,12 +75,12 @@ public class PanelVerHistorialUsuario extends javax.swing.JPanel {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);
-        PanelHistorialDeComidasUsuario nuevo = new PanelHistorialDeComidasUsuario(sistema, ventana, interfaz);
+        PanelHistorialDeComidasUsuario nuevo
+                = new PanelHistorialDeComidasUsuario(sistema, ventana, interfaz);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnVolverActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;

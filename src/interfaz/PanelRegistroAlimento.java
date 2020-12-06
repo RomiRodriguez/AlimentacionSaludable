@@ -4,16 +4,13 @@ import dominio.Sistema;
 import dominio.Alimento;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class PanelRegistroAlimento extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private Alimento alimento;
     private JFrame ventana;
 
-    //Cosntructor
     public PanelRegistroAlimento(Sistema unSistema, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;
@@ -80,11 +77,6 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
 
         listaTiposAlimentos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaTiposAlimentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        listaTiposAlimentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaTiposAlimentosActionPerformed(evt);
-            }
-        });
         panelRegAlimento.add(listaTiposAlimentos);
         listaTiposAlimentos.setBounds(420, 180, 230, 35);
 
@@ -133,7 +125,7 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
             }
         });
         panelRegAlimento.add(checkBoxHidratosDeCarbono);
-        checkBoxHidratosDeCarbono.setBounds(410, 270, 257, 37);
+        checkBoxHidratosDeCarbono.setBounds(410, 270, 243, 37);
 
         checkBoxVitaminas.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         checkBoxVitaminas.setText("Vitaminas");
@@ -219,13 +211,13 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
     private void cajaNombreAlimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreAlimFocusLost
         String nombre = cajaNombreAlim.getText();
         if (nombre.trim().isEmpty()) {
-            etiquetaErrorNombreAlimento.setText("El nombre no puede ser vacío");
+            etiquetaErrorNombreAlimento.setText("Debe completar este campo");
         } else {
             alimento.setNombre(nombre);
             if (sistema.getListaAlimentos().contains(alimento)) {
                 etiquetaErrorNombreAlimento.setText("Esa comida ya se encuentra en el sistema");
             } else {
-                etiquetaErrorNombreAlimento.setText(" ");
+                etiquetaErrorNombreAlimento.setText("");
             }
         }
     }//GEN-LAST:event_cajaNombreAlimFocusLost
@@ -270,11 +262,6 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
         boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Agua.ordinal()];
         estadoActual = !estadoActual;
     }//GEN-LAST:event_checkBoxAguaActionPerformed
-
-    private void listaTiposAlimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTiposAlimentosActionPerformed
-
-    }//GEN-LAST:event_listaTiposAlimentosActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarRegAlim;

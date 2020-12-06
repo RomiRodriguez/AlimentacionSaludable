@@ -7,14 +7,13 @@ import javax.swing.JFrame;
 
 public class PanelPerfilUsuario extends javax.swing.JPanel {
 
-    //Atrubutos
     private Sistema sistema;
     private Usuario usuario;
     private JFrame ventana;
     private InterfazBotonesUsuario interfaz;
 
-    //Constructor
-    public PanelPerfilUsuario(Sistema unSistema, JFrame unaVentana, InterfazBotonesUsuario interfazActual) {
+    public PanelPerfilUsuario(Sistema unSistema, JFrame unaVentana,
+            InterfazBotonesUsuario interfazActual) {
         initComponents();
         sistema = unSistema;
         ventana = unaVentana;
@@ -98,12 +97,12 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
 
     private void btnEditarPerfilUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPerfilUsuarioActionPerformed
         ventana.remove(this);
-        PanelEditarPerfilUsuario nuevo = new PanelEditarPerfilUsuario(sistema, ventana, interfaz);
+        PanelEditarPerfilUsuario nuevo
+                = new PanelEditarPerfilUsuario(sistema, ventana, interfaz);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnEditarPerfilUsuarioActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarPerfilUsuario;
@@ -147,7 +146,6 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
                 retorno += "Celiaco, ";
                 contador++;
             }
-
         }
         if (unUsuario.getListaRestricciones()[Usuario.Restricciones.Diabetico.ordinal()] == true) {
             if (contador == cantidadDeRestricciones - 1) {
@@ -178,5 +176,4 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
         }
         return retorno;
     }
-
 }

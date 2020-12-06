@@ -9,14 +9,12 @@ import javax.swing.JFrame;
 
 public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private InterfazBotonesProfesional interfaz;
     private JFrame ventana;
     private Usuario usuarioAModificar;
     private PlanDeAlimentacion nuevoPlan;
 
-    //Constructor
     public PanelRealizarPlanAlimentacion(Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz,
             JFrame unaVentana,
@@ -30,7 +28,6 @@ public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
         listaComidasDiarias.setListData(nuevoPlan.getListaLunes().toArray());
     }
 
-    //Constructor
     public PanelRealizarPlanAlimentacion(Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz,
             JFrame unaVentana,
@@ -159,7 +156,9 @@ public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         ventana.remove(this);
         ArrayList<Alimento> listaActiva = listaActiva();
-        PanelAgregarComidasAPlan nuevo = new PanelAgregarComidasAPlan(sistema, interfaz, ventana, listaActiva, nuevoPlan, usuarioAModificar);
+        PanelAgregarComidasAPlan nuevo
+                = new PanelAgregarComidasAPlan(sistema, interfaz, ventana,
+                        listaActiva, nuevoPlan, usuarioAModificar);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();
@@ -167,7 +166,8 @@ public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);
-        PanelSeleccionarPlanARealizar nuevo = new PanelSeleccionarPlanARealizar(sistema, interfaz, ventana);
+        PanelSeleccionarPlanARealizar nuevo
+                = new PanelSeleccionarPlanARealizar(sistema, interfaz, ventana);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();

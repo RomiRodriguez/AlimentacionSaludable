@@ -3,12 +3,10 @@ package dominio;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.Optional;
 
 public class Usuario extends Persona implements Serializable {
 
-    //Atributos
     private static final long serialVersionUID = 6106269076155338045L;
     private Nacionalidades nacionalidad;
     private Nacionalidades[] listaEnumNac;
@@ -26,7 +24,6 @@ public class Usuario extends Persona implements Serializable {
     private ArrayList<Mensaje> casillaDeEntrada;
     private String fechaUltimaAdicion;
 
-    //Costructor
     public Usuario(Nacionalidades nacionalidad, double pesoKg, double alturaCm,
             Preferencias preferenciasAlimentarias, Restricciones restricciones,
             PlanDeAlimentacion plan, String sexo, String nombre,
@@ -43,10 +40,10 @@ public class Usuario extends Persona implements Serializable {
         this.necesitoPlan = false;
         this.profesionalAsignado = new Profesional();
         this.sexo = sexo;
-        this.historialComidas = new ArrayList<ComidaPorDia>();
+        this.historialComidas = new ArrayList<>();
         this.historialDelDia = new ComidaPorDia();
         this.listaEnumNac = inicializoListaEnum();
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
         this.fechaUltimaAdicion = "no se ingreso";
     }
 
@@ -65,14 +62,13 @@ public class Usuario extends Persona implements Serializable {
         this.profesionalAsignado = new Profesional();
         this.plan = new PlanDeAlimentacion(this);
         this.sexo = "no se ingreso";
-        this.historialComidas = new ArrayList<ComidaPorDia>();
+        this.historialComidas = new ArrayList<>();
         this.historialDelDia = new ComidaPorDia();
         this.listaEnumNac = inicializoListaEnum();
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
         this.fechaUltimaAdicion = "no se ingreso";
     }
 
-    // Metodos de la clase usuario
     public String getFechaUltimaAdicion() {
         return fechaUltimaAdicion;
     }

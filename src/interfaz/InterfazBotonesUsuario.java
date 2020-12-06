@@ -12,7 +12,8 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     private JFrame ventana;
     private Usuario usuarioActual;
 
-    public InterfazBotonesUsuario(Sistema unSistema, JFrame unaVentana, Usuario unUsuario) {
+    public InterfazBotonesUsuario(Sistema unSistema, JFrame unaVentana,
+            Usuario unUsuario) {
         initComponents();
         sistema = unSistema;
         ventana = unaVentana;
@@ -20,7 +21,8 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         actual = new PanelHomeUsuario(sistema, this, ventana);
         ventana.add(this);
         ventana.add(actual);
-        etiquetaUsuarioActual.setText(" Bienvenido, " + this.usuarioActual.getNombre());
+        etiquetaUsuarioActual.setText(" Bienvenido, "
+                + this.usuarioActual.getNombre());
     }
 
     public JPanel getActual() {
@@ -50,6 +52,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         btnConsultaDirecta = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
         btnAgregarComida = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(250, 784));
@@ -74,15 +77,15 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnHome);
-        btnHome.setBounds(2, 36, 270, 46);
+        btnHome.setBounds(2, 36, 250, 46);
 
         etiquetaUsuarioActual.setBackground(new java.awt.Color(255, 0, 102));
-        etiquetaUsuarioActual.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etiquetaUsuarioActual.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         etiquetaUsuarioActual.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaUsuarioActual.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         etiquetaUsuarioActual.setOpaque(true);
         panelBotonesUsuario.add(etiquetaUsuarioActual);
-        etiquetaUsuarioActual.setBounds(10, 600, 282, 42);
+        etiquetaUsuarioActual.setBounds(0, 580, 300, 42);
 
         btnPedirPlan.setBackground(new java.awt.Color(255, 0, 102));
         btnPedirPlan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -97,7 +100,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPedirPlan);
-        btnPedirPlan.setBounds(2, 231, 270, 43);
+        btnPedirPlan.setBounds(2, 231, 250, 43);
 
         btnConsultaDirecta.setBackground(new java.awt.Color(255, 0, 102));
         btnConsultaDirecta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -112,7 +115,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnConsultaDirecta);
-        btnConsultaDirecta.setBounds(2, 167, 270, 43);
+        btnConsultaDirecta.setBounds(2, 167, 250, 43);
 
         btnPerfil.setBackground(new java.awt.Color(255, 0, 102));
         btnPerfil.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -127,7 +130,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPerfil);
-        btnPerfil.setBounds(2, 103, 270, 43);
+        btnPerfil.setBounds(2, 103, 250, 43);
 
         btnAgregarComida.setBackground(new java.awt.Color(255, 0, 102));
         btnAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 21)); // NOI18N
@@ -143,14 +146,29 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnAgregarComida);
-        btnAgregarComida.setBounds(2, 295, 270, 45);
+        btnAgregarComida.setBounds(2, 295, 250, 45);
+
+        btnSalir.setBackground(new java.awt.Color(255, 0, 102));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Cerrar sesión");
+        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setOpaque(true);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        panelBotonesUsuario.add(btnSalir);
+        btnSalir.setBounds(0, 660, 250, 43);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         panelBotonesUsuario.add(fondo);
-        fondo.setBounds(0, -50, 360, 880);
+        fondo.setBounds(0, -20, 250, 810);
 
         add(panelBotonesUsuario);
-        panelBotonesUsuario.setBounds(-1, 0, 330, 810);
+        panelBotonesUsuario.setBounds(-1, 0, 250, 780);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -188,8 +206,13 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         ventana.pack();
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
-   
-
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        ventana.remove(actual);
+        ventana.remove(PanelHomeUsuario.getInterfaz());
+        actual = new PanelIngresar(ventana, sistema);
+        ventana.add(actual);
+        ventana.pack();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;
@@ -197,6 +220,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPedirPlan;
     private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel etiquetaUsuarioActual;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel panelBotonesUsuario;

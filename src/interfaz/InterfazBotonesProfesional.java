@@ -7,13 +7,11 @@ import javax.swing.JPanel;
 
 public class InterfazBotonesProfesional extends javax.swing.JPanel {
 
-    //Atrbutos
     private Sistema sistema;
     private JFrame ventana;
     private JPanel actual;
     private Profesional usuarioActivo;
 
-    //Cosntructor
     public InterfazBotonesProfesional(Sistema unSistema, JFrame unaVentana,
             Profesional unProfesional) {
         initComponents();
@@ -23,7 +21,8 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         actual = new PanelHomeProfesional(unSistema, this, unaVentana);
         ventana.add(this);
         ventana.add(actual);
-        etiquetaUsuarioActual.setText(" Bienvenido, " + unProfesional.getNombre());
+        etiquetaUsuarioActual.setText(" Bienvenido, "
+                + unProfesional.getNombre());
     }
 
     public JPanel getActual() {
@@ -50,6 +49,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         etiquetaUsuarioActual = new javax.swing.JLabel();
         btnRealizarPlan = new javax.swing.JButton();
         btnConsultaDirecta = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 153));
@@ -108,7 +108,22 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
             }
         });
         add(btnConsultaDirecta);
-        btnConsultaDirecta.setBounds(2, 156, 258, 43);
+        btnConsultaDirecta.setBounds(0, 160, 260, 43);
+
+        btnSalir.setBackground(new java.awt.Color(255, 0, 102));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Cerrar sesión");
+        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setOpaque(true);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        add(btnSalir);
+        btnSalir.setBounds(0, 660, 258, 43);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         add(fondo);
@@ -136,11 +151,19 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         ventana.pack();
     }//GEN-LAST:event_btnRealizarPlanActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        ventana.remove(actual);
+        ventana.remove(PanelHomeProfesional.getInterfaz());
+        actual = new PanelIngresar(ventana, sistema);
+        ventana.add(actual);
+        ventana.pack();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultaDirecta;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnRealizarPlan;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel etiquetaUsuarioActual;
     private javax.swing.JLabel fondo;
     // End of variables declaration//GEN-END:variables
