@@ -31,8 +31,8 @@ public class Usuario extends Persona implements Serializable {
             Preferencias preferenciasAlimentarias, Restricciones restricciones,
             PlanDeAlimentacion plan, String sexo, String nombre,
             String apellidos, String nombreUsuario, String fechaNacimiento,
-            ImageIcon fotoPerfil) {
-        super(nombre, apellidos, nombreUsuario, fechaNacimiento, fotoPerfil);
+            ImageIcon fotoPerfil, String contrasenia) {
+        super(nombre, apellidos, nombreUsuario, fechaNacimiento, fotoPerfil, contrasenia);
         this.nacionalidad = nacionalidad;
         this.pesoKg = pesoKg;
         this.alturaCm = alturaCm;
@@ -52,11 +52,9 @@ public class Usuario extends Persona implements Serializable {
 
     public Usuario() {
         super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario",
-              "no ingreso fecha nacimiento", null);
-        this.setFotoPerfil(new javax
-                           .swing.ImageIcon(getClass()
-                           .getResource
-                           ("/imagenes/predeterminadaUsuario.jpg")));
+                "no ingreso fecha nacimiento", null, "no ingreso constraseña");
+        this.setFotoPerfil(new javax.swing.ImageIcon(getClass()
+                .getResource("/imagenes/predeterminadaUsuario.jpg")));
         this.nacionalidad = Nacionalidades.Uruguaya;
         this.pesoKg = 0;
         this.alturaCm = 0;
@@ -131,10 +129,9 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setPesoKg(double pesoKg) {
-        if(pesoKg > 0 && pesoKg < 501){
+        if (pesoKg > 0 && pesoKg < 501) {
             this.pesoKg = pesoKg;
         }
-        
     }
 
     public double getAlturaCm() {
@@ -142,7 +139,7 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setAlturaCm(double alturaCm) {
-        if(alturaCm > 0 && alturaCm < 266){
+        if (alturaCm > 0 && alturaCm < 266) {
             this.alturaCm = alturaCm;
         }
     }
@@ -151,8 +148,7 @@ public class Usuario extends Persona implements Serializable {
         return preferenciasAlimentarias;
     }
 
-    public void setPreferenciasAlimentarias(Preferencias
-                                            preferenciasAlimentarias) {
+    public void setPreferenciasAlimentarias(Preferencias preferenciasAlimentarias) {
         this.preferenciasAlimentarias = preferenciasAlimentarias;
     }
 
@@ -177,7 +173,7 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setSexo(String sexo) {
-        if(sexo.equals("Masculino") || sexo.equals("Femenino")){
+        if (sexo.equals("Masculino") || sexo.equals("Femenino")) {
             this.sexo = sexo;
         }
     }
@@ -219,7 +215,7 @@ public class Usuario extends Persona implements Serializable {
 
     String[] inicializoListaNacionalidades() {
         String[] listaPaisesPivot = {"Alemana", "Australiana", "Austriaca",
-            "Brasileña","Canadiense", "Chilena", "China", "Colombiana",
+            "Brasileña", "Canadiense", "Chilena", "China", "Colombiana",
             "Surcoreana", "Cubana", "Ecuatoriana", "Egipcia",
             "Española", "EstadoUnidense", "Francesa", "Griega",
             "Holandesa", "India", "Inglesa", "Israeli", "Italiana",
@@ -236,8 +232,8 @@ public class Usuario extends Persona implements Serializable {
             Nacionalidades.Brasileña, Nacionalidades.Canadiense,
             Nacionalidades.Chilena, Nacionalidades.China,
             Nacionalidades.Colombiana, Nacionalidades.Surcoreana,
-            Nacionalidades.Cubana, Nacionalidades.Ecuatoriana, 
-            Nacionalidades.Egipcia, Nacionalidades.Española, 
+            Nacionalidades.Cubana, Nacionalidades.Ecuatoriana,
+            Nacionalidades.Egipcia, Nacionalidades.Española,
             Nacionalidades.EstadoUnidense, Nacionalidades.Francesa,
             Nacionalidades.Griega, Nacionalidades.Holandesa,
             Nacionalidades.India, Nacionalidades.Inglesa,

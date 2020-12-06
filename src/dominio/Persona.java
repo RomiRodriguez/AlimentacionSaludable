@@ -5,25 +5,24 @@ import javax.swing.ImageIcon;
 
 public abstract class Persona implements Serializable {
 
-    //Atributos
     private static final long serialVersionUID = 6106269076155338045L;
     private String nombre;
     private String apellidos;
     private String nombreUsuario;
     private String fechaNacimiento;
     private ImageIcon fotoPerfil;
+    private String contrasenia;
 
-    //Cosntructor
     public Persona(String nombre, String apellidos, String nombreUsuario,
-                   String fechaNacimiento, ImageIcon fotoPerfil) {
+            String fechaNacimiento, ImageIcon fotoPerfil, String contrasenia) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nombreUsuario = nombreUsuario;
         this.fechaNacimiento = fechaNacimiento;
         this.fotoPerfil = fotoPerfil;
+        this.contrasenia = contrasenia;
     }
 
-    //Metodos de la clase persona
     public String getNombre() {
         return nombre;
     }
@@ -64,6 +63,14 @@ public abstract class Persona implements Serializable {
         this.fotoPerfil = fotoPerfil;
     }
 
+    public String getContrsenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
     //Redefino el equals
     @Override
     public boolean equals(Object obj) {
@@ -74,10 +81,10 @@ public abstract class Persona implements Serializable {
         if (obj.getClass() != this.getClass()) {
             retorno = false;
         }
-        if(retorno == true){
+        if (retorno == true) {
             Persona p = (Persona) obj;
             retorno = this.getNombreUsuario()
-                      .equalsIgnoreCase(p.getNombreUsuario());
+                    .equalsIgnoreCase(p.getNombreUsuario());
         }
         return retorno;
     }

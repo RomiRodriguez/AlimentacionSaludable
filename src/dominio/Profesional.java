@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 
 public class Profesional extends Persona implements Serializable {
 
-    //Atributos
     private static final long serialVersionUID = 6106269076155338045L;
     private String nombreTituloProf;
     private String fechaGraduacion;
@@ -15,22 +14,17 @@ public class Profesional extends Persona implements Serializable {
     private Pais[] listaEnumPais = inicializoListaEnumPaises();
     private ArrayList<Mensaje> casillaDeEntrada;
 
-    //Constructor
-
     public Profesional() {
         super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario",
-              "no ingreso fecha nacimiento", null);
-        this.setFotoPerfil(new javax.swing
-                           .ImageIcon(getClass()
-                           .getResource
-                           ("/imagenes/predeterminadaProfesional.png")));
+                "no ingreso fecha nacimiento", null, "no ingreso contrasenia");
+        this.setFotoPerfil(new javax.swing.ImageIcon(getClass()
+                .getResource("/imagenes/predeterminadaProfesional.png")));
         this.nombreTituloProf = "no ingreso titulo prof";
         this.fechaGraduacion = "no ingreso fecha graduacion";
         this.paisObtuvoTitulo = Pais.Uruguay;
         this.casillaDeEntrada = new ArrayList<Mensaje>();
     }
 
-    // Metodos de la clase profesional
     public ArrayList<Mensaje> getCasillaDeEntrada() {
         return casillaDeEntrada;
     }
@@ -44,7 +38,7 @@ public class Profesional extends Persona implements Serializable {
     }
 
     public void setNombreTituloProf(String nombreTituloProf) {
-        if(!nombreTituloProf.trim().isEmpty()){
+        if (!nombreTituloProf.trim().isEmpty()) {
             this.nombreTituloProf = nombreTituloProf;
         }
     }
@@ -54,7 +48,7 @@ public class Profesional extends Persona implements Serializable {
     }
 
     public void setFechaGraduacion(String fechaGraduacion) {
-        if(!fechaGraduacion.trim().isEmpty()){
+        if (!fechaGraduacion.trim().isEmpty()) {
             this.fechaGraduacion = fechaGraduacion;
         }
     }
@@ -76,7 +70,6 @@ public class Profesional extends Persona implements Serializable {
         this.listaEnumPais = Optional
                 .ofNullable(listaEnumPais)
                 .orElse(null);
-
     }
 
     public enum Pais {
@@ -100,6 +93,14 @@ public class Profesional extends Persona implements Serializable {
             Pais.Uruguay, Pais.Venezuela
         };
         return listaEnumPivot;
+    }
+
+    public static boolean ContraseniaTieneLargoMinimo(String contrasenia) {
+        return contrasenia.length() >= 8;
+    }
+
+    public static boolean ConstraseniaAlfanumerica(String contrasenia) {
+        return contrasenia.matches("[a-zA-Z0-9]*");
     }
 
     //redefino toString

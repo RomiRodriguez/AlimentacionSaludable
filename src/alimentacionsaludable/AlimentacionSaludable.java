@@ -1,35 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package alimentacionsaludable;
+
+import dominio.Profesional;
 import dominio.Sistema;
-import interfaz.InterfazBotonesAdministrador;
-import interfaz.InterfazBotonesProfesional;
-import interfaz.InterfazBotonesUsuario;
-import interfaz.PanelCambioDeUsuario;
-import interfaz.PanelPerfilUsuario;
+import dominio.Usuario;
+import interfaz.PanelIngresar;
 import interfaz.PanelPrincipal;
-import java.awt.Component;
-import javax.swing.JPanel;
-/**
- *
- * @author ale
- */
+import java.util.ArrayList;
+
 public class AlimentacionSaludable {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Sistema s = new Sistema();
+        Usuario usuario = new Usuario();
+        usuario.setNombre("Romina");
+        usuario.setNombreUsuario("rr202202");
+        usuario.setContrasenia("ort2020");
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+        Profesional prof = new Profesional();
+        prof.setNombre("Diego");
+        prof.setNombreUsuario("da202202");
+        prof.setContrasenia("ort2020");
+        ArrayList<Profesional> profesionales = new ArrayList<>();
+        profesionales.add(prof);
         s.cargarSistema();
+        s.setListaUsuarios(usuarios);
+        s.setListaProfesionales(profesionales);
         PanelPrincipal p = new PanelPrincipal(s);
-        //InterfazBotonesAdministrador i = new InterfazBotonesAdministrador(s,p);
-        //InterfazBotonesUsuario i = new InterfazBotonesUsuario(s,p);
-        //InterfazBotonesProfesional i = new InterfazBotonesProfesional(s,p);
-        PanelCambioDeUsuario comienzo = new PanelCambioDeUsuario(p,p.getSistema());
+        PanelIngresar comienzo = new PanelIngresar(p, p.getSistema());
         p.add(comienzo);
         p.pack();
         p.setLocationRelativeTo(null);
