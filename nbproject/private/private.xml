@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/romii/OneDrive/Desktop/Repo/src/interfaz/PanelIngresar.java</file>
-            <file>file:/C:/Users/romii/OneDrive/Desktop/Repo/src/dominio/Sistema.java</file>
-            <file>file:/C:/Users/romii/OneDrive/Desktop/Repo/src/interfaz/PanelRegistroUsuario.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/test/dominio/UsuarioTest.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/src/interfaz/InterfazBotonesProfesional.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/test/dominio/SistemaTest.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/src/dominio/Sistema.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/src/interfaz/InterfazBotonesAdministrador.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/src/interfaz/InterfazBotonesUsuario.java</file>
+            <file>file:/C:/Users/Diego/Desktop/ok/test/dominio/PersonaTest.java</file>
         </group>
     </open-files>
 </project-private>

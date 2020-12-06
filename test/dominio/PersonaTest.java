@@ -69,7 +69,7 @@ public class PersonaTest {
     public class PersonaImpl extends Persona {
 
         public PersonaImpl() {
-            super("", "", "", "", null);
+            super("", "", "", "", null,"");
         }
     }
     

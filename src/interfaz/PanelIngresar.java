@@ -64,9 +64,9 @@ public class PanelIngresar extends javax.swing.JPanel {
 
         etiquetaNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        etiquetaNombreUsuario.setText("¿Todavía se ha registrado?");
+        etiquetaNombreUsuario.setText("¿Todavía no se ha registrado?");
         jPanel.add(etiquetaNombreUsuario);
-        etiquetaNombreUsuario.setBounds(340, 520, 290, 29);
+        etiquetaNombreUsuario.setBounds(300, 520, 330, 29);
 
         cajaNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jPanel.add(cajaNombreUsuario);
@@ -110,7 +110,7 @@ public class PanelIngresar extends javax.swing.JPanel {
             }
         });
         jPanel.add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(530, 410, 210, 37);
+        btnIniciarSesion.setBounds(530, 410, 210, 35);
 
         etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaMensajeAlAceptar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

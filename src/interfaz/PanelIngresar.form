@@ -92,11 +92,11 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="&#xbf;Todav&#xed;a se ha registrado?"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Todav&#xed;a no se ha registrado?"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="340" y="520" width="290" height="-1"/>
+              <AbsoluteConstraints x="300" y="520" width="330" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

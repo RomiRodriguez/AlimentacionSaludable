@@ -622,7 +622,8 @@ public class UsuarioTest {
         PlanDeAlimentacion plan = new PlanDeAlimentacion(c);
         String sexo = "Masculino";
         ImageIcon fotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
-        Usuario nuevo = new Usuario(nacionalidad,peso,altura,preferencias,restricciones,plan,sexo,nombre,apellido,usuario,fNacimiento,fotoPerfil);
+        String password = "password";
+        Usuario nuevo = new Usuario(nacionalidad,peso,altura,preferencias,restricciones,plan,sexo,nombre,apellido,usuario,fNacimiento,fotoPerfil,password);
        
     }
     
