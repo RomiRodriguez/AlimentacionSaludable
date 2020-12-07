@@ -43,8 +43,13 @@ public class ProfesionalTest {
         System.out.println("setCasillaDeEntrada");
         ArrayList<Mensaje> casillaDeEntrada = new ArrayList<Mensaje>();
         Profesional instance = new Profesional();
+        boolean ok = instance.ContraseniaTieneLargoMinimo(instance.getContrsenia());
+        boolean ok2 = instance.ConstraseniaAlfanumerica(instance.getContrsenia());
         instance.setCasillaDeEntrada(casillaDeEntrada);
         assertEquals(instance.getCasillaDeEntrada(),casillaDeEntrada);
+        assertNotNull(ok);
+        assertNotNull(ok2);
+        
     }
 
     @Test
@@ -368,5 +373,13 @@ public class ProfesionalTest {
         obj.setNombreUsuario("nombre");
         boolean test = obj.equals("soy string");
         assertFalse(test);
+    } 
+    
+    
+    @Test
+    public void testSetFechaGraduacion() {
+        Profesional obj = new Profesional();
+        obj.setFechaGraduacion("10-10-2010");       
+        assertEquals("10-10-2010",obj.getFechaGraduacion());
     } 
 }

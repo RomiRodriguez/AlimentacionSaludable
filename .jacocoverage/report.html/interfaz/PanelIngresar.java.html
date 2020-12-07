@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PanelIngresar.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlimentacionSaludable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">PanelIngresar.java</span></div><h1>PanelIngresar.java</h1><pre class="source lang-java linenums">package interfaz;
+
+import dominio.Profesional;
+import dominio.Sistema;
+import dominio.Usuario;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PanelIngresar extends javax.swing.JPanel {
+
+    private JFrame ventana;
+    private Sistema sistema;
+    private JPanel actual;
+    private ArrayList&lt;Usuario&gt; listaUsuarios;
+    private ArrayList&lt;Profesional&gt; listaProfesionales;
+
+    public PanelIngresar(JFrame unaVentana,
+<span class="nc" id="L19">            Sistema unSistema) {</span>
+<span class="nc" id="L20">        initComponents();</span>
+<span class="nc" id="L21">        ventana = unaVentana;</span>
+<span class="nc" id="L22">        actual = new PanelRegistroUsuario(sistema, ventana);</span>
+<span class="nc" id="L23">        sistema = unSistema;</span>
+<span class="nc" id="L24">        listaUsuarios = sistema.getListaUsuarios();</span>
+<span class="nc" id="L25">        listaProfesionales = sistema.getListaProfesionales();</span>
+<span class="nc" id="L26">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L32">        jPanel = new javax.swing.JPanel();</span>
+<span class="nc" id="L33">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L34">        cajaContrasenia = new javax.swing.JTextField();</span>
+<span class="nc" id="L35">        etiquetaNombreUsuario = new javax.swing.JLabel();</span>
+<span class="nc" id="L36">        cajaNombreUsuario = new javax.swing.JTextField();</span>
+<span class="nc" id="L37">        etiquetaContrasenia = new javax.swing.JLabel();</span>
+<span class="nc" id="L38">        etiquetaNombreUsuario1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L39">        btnRegistrarse = new javax.swing.JButton();</span>
+<span class="nc" id="L40">        btnIniciarSesion = new javax.swing.JButton();</span>
+<span class="nc" id="L41">        etiquetaMensajeAlAceptar = new javax.swing.JLabel();</span>
+<span class="nc" id="L42">        etiquetaErrorContrasenia = new javax.swing.JLabel();</span>
+<span class="nc" id="L43">        etiquetaErrorNombre = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L45">        setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L46">        setPreferredSize(new java.awt.Dimension(1147, 784));</span>
+
+<span class="nc" id="L48">        jPanel.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L49">        jPanel.setPreferredSize(new java.awt.Dimension(1147, 784));</span>
+<span class="nc" id="L50">        jPanel.setLayout(null);</span>
+
+<span class="nc" id="L52">        jLabel1.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 48)); // NOI18N</span>
+<span class="nc" id="L53">        jLabel1.setForeground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L54">        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L55">        jLabel1.setText(&quot;Iniciar sesión&quot;);</span>
+<span class="nc" id="L56">        jPanel.add(jLabel1);</span>
+<span class="nc" id="L57">        jLabel1.setBounds(420, 80, 290, 100);</span>
+
+<span class="nc" id="L59">        cajaContrasenia.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L60">        jPanel.add(cajaContrasenia);</span>
+<span class="nc" id="L61">        cajaContrasenia.setBounds(580, 300, 160, 35);</span>
+
+<span class="nc" id="L63">        etiquetaNombreUsuario.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L64">        etiquetaNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L65">        etiquetaNombreUsuario.setText(&quot;¿Todavía no se ha registrado?&quot;);</span>
+<span class="nc" id="L66">        jPanel.add(etiquetaNombreUsuario);</span>
+<span class="nc" id="L67">        etiquetaNombreUsuario.setBounds(310, 520, 320, 29);</span>
+
+<span class="nc" id="L69">        cajaNombreUsuario.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L70">        jPanel.add(cajaNombreUsuario);</span>
+<span class="nc" id="L71">        cajaNombreUsuario.setBounds(580, 250, 160, 35);</span>
+
+<span class="nc" id="L73">        etiquetaContrasenia.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L74">        etiquetaContrasenia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L75">        etiquetaContrasenia.setText(&quot;Contraseña:&quot;);</span>
+<span class="nc" id="L76">        jPanel.add(etiquetaContrasenia);</span>
+<span class="nc" id="L77">        etiquetaContrasenia.setBounds(390, 300, 180, 30);</span>
+
+<span class="nc" id="L79">        etiquetaNombreUsuario1.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L80">        etiquetaNombreUsuario1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L81">        etiquetaNombreUsuario1.setText(&quot;Nombre usuario:&quot;);</span>
+<span class="nc" id="L82">        jPanel.add(etiquetaNombreUsuario1);</span>
+<span class="nc" id="L83">        etiquetaNombreUsuario1.setBounds(390, 250, 180, 29);</span>
+
+<span class="nc" id="L85">        btnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L86">        btnRegistrarse.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L87">        btnRegistrarse.setForeground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L88">        btnRegistrarse.setText(&quot;Regístrese ahora&quot;);</span>
+<span class="nc" id="L89">        btnRegistrarse.setBorder(null);</span>
+<span class="nc" id="L90">        btnRegistrarse.setBorderPainted(false);</span>
+<span class="nc" id="L91">        btnRegistrarse.setContentAreaFilled(false);</span>
+<span class="nc" id="L92">        btnRegistrarse.setOpaque(true);</span>
+<span class="nc" id="L93">        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L95">                btnRegistrarseActionPerformed(evt);</span>
+<span class="nc" id="L96">            }</span>
+        });
+<span class="nc" id="L98">        jPanel.add(btnRegistrarse);</span>
+<span class="nc" id="L99">        btnRegistrarse.setBounds(660, 520, 190, 30);</span>
+
+<span class="nc" id="L101">        btnIniciarSesion.setBackground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L102">        btnIniciarSesion.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L103">        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L104">        btnIniciarSesion.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L105">        btnIniciarSesion.setContentAreaFilled(false);</span>
+<span class="nc" id="L106">        btnIniciarSesion.setOpaque(true);</span>
+<span class="nc" id="L107">        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L109">                btnIniciarSesionActionPerformed(evt);</span>
+<span class="nc" id="L110">            }</span>
+        });
+<span class="nc" id="L112">        jPanel.add(btnIniciarSesion);</span>
+<span class="nc" id="L113">        btnIniciarSesion.setBounds(530, 410, 210, 37);</span>
+
+<span class="nc" id="L115">        etiquetaMensajeAlAceptar.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L116">        etiquetaMensajeAlAceptar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L117">        jPanel.add(etiquetaMensajeAlAceptar);</span>
+<span class="nc" id="L118">        etiquetaMensajeAlAceptar.setBounds(340, 380, 570, 26);</span>
+
+<span class="nc" id="L120">        etiquetaErrorContrasenia.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L121">        etiquetaErrorContrasenia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
+<span class="nc" id="L122">        jPanel.add(etiquetaErrorContrasenia);</span>
+<span class="nc" id="L123">        etiquetaErrorContrasenia.setBounds(750, 300, 400, 30);</span>
+
+<span class="nc" id="L125">        etiquetaErrorNombre.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L126">        etiquetaErrorNombre.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
+<span class="nc" id="L127">        jPanel.add(etiquetaErrorNombre);</span>
+<span class="nc" id="L128">        etiquetaErrorNombre.setBounds(750, 250, 400, 30);</span>
+
+<span class="nc" id="L130">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L131">        this.setLayout(layout);</span>
+<span class="nc" id="L132">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L133">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L134">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L135">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L136">                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L137">                .addContainerGap())</span>
+        );
+<span class="nc" id="L139">        layout.setVerticalGroup(</span>
+<span class="nc" id="L140">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L141">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L142">                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L143">                .addGap(0, 0, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L145">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (cajaNombreUsuario.getText().trim().isEmpty()) {</span>
+<span class="nc" id="L149">            etiquetaErrorNombre.setText(&quot;Debe completar este campo&quot;);</span>
+        }
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (cajaContrasenia.getText().trim().isEmpty()) {</span>
+<span class="nc" id="L152">            etiquetaErrorContrasenia.setText(&quot;Debe completar este campo&quot;);</span>
+        }
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (!etiquetaErrorNombre.getText().equals(&quot;&quot;)</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">                || !etiquetaErrorContrasenia.getText().equals(&quot;&quot;)) {</span>
+<span class="nc" id="L156">            etiquetaMensajeAlAceptar.setText(&quot;Error al ingresar usuario&quot;);</span>
+        } else {
+<span class="nc" id="L158">            Usuario usuario = new Usuario();</span>
+<span class="nc" id="L159">            usuario.setNombreUsuario(cajaNombreUsuario.getText());</span>
+<span class="nc" id="L160">            Profesional profesional = new Profesional();</span>
+<span class="nc" id="L161">            profesional.setNombreUsuario(cajaNombreUsuario.getText());</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">            if (!listaUsuarios.contains(usuario)</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">                    &amp;&amp; !listaProfesionales.contains(profesional)) {</span>
+<span class="nc" id="L164">                etiquetaErrorNombre.setText(&quot;Usuario no existente&quot;);</span>
+<span class="nc" id="L165">                etiquetaMensajeAlAceptar.setText(&quot;Error al ingresar usuario&quot;);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            } else if (listaUsuarios.contains(usuario)) {</span>
+<span class="nc" id="L167">                VerificarDatosUsuario();</span>
+            } else {
+<span class="nc" id="L169">                VerificarDatosProfesional();</span>
+            }
+        }
+<span class="nc" id="L172">    }//GEN-LAST:event_btnIniciarSesionActionPerformed</span>
+
+    private void VerificarDatosUsuario() {
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        for (int i = 0; i &lt; listaUsuarios.size(); i++) {</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">            if (listaUsuarios.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">                if (listaUsuarios.get(i).getContrsenia().equals(cajaContrasenia.getText())) {</span>
+<span class="nc" id="L178">                    ventana.remove(this);</span>
+<span class="nc" id="L179">                    InterfazBotonesUsuario nuevaBotonera</span>
+<span class="nc" id="L180">                            = new InterfazBotonesUsuario(sistema, ventana, listaUsuarios.get(i));</span>
+<span class="nc" id="L181">                    ventana.pack();</span>
+<span class="nc" id="L182">                } else {</span>
+<span class="nc" id="L183">                    etiquetaMensajeAlAceptar.setText(&quot;Contraseña incorrecta&quot;);</span>
+                }
+            }
+        }
+<span class="nc" id="L187">    }</span>
+
+    private void VerificarDatosProfesional() {
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        for (int i = 0; i &lt; listaProfesionales.size(); i++) {</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">            if (listaProfesionales.get(i).getNombreUsuario().equals(cajaNombreUsuario.getText())) {</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">                if (listaProfesionales.get(i).getContrsenia().equals(cajaContrasenia.getText())) {</span>
+<span class="nc" id="L193">                    ventana.remove(this);</span>
+<span class="nc" id="L194">                    InterfazBotonesProfesional nuevaBotonera</span>
+<span class="nc" id="L195">                            = new InterfazBotonesProfesional(sistema, ventana, listaProfesionales.get(i));</span>
+<span class="nc" id="L196">                    ventana.pack();</span>
+<span class="nc" id="L197">                } else {</span>
+<span class="nc" id="L198">                    etiquetaMensajeAlAceptar.setText(&quot;Contraseña incorrecta&quot;);</span>
+                }
+            }
+        }
+<span class="nc" id="L202">    }</span>
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+<span class="nc" id="L205">        ventana.remove(this);</span>
+<span class="nc" id="L206">        ventana.add(new PanelRegistrar(sistema, ventana));</span>
+<span class="nc" id="L207">        ventana.pack();</span>
+<span class="nc" id="L208">    }//GEN-LAST:event_btnRegistrarseActionPerformed</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JTextField cajaContrasenia;
+    private javax.swing.JTextField cajaNombreUsuario;
+    private javax.swing.JLabel etiquetaContrasenia;
+    private javax.swing.JLabel etiquetaErrorContrasenia;
+    private javax.swing.JLabel etiquetaErrorNombre;
+    private javax.swing.JLabel etiquetaMensajeAlAceptar;
+    private javax.swing.JLabel etiquetaNombreUsuario;
+    private javax.swing.JLabel etiquetaNombreUsuario1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

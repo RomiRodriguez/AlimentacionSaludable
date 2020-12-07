@@ -10,8 +10,8 @@ public class Usuario extends Persona implements Serializable {
     private static final long serialVersionUID = 6106269076155338045L;
     private Nacionalidades nacionalidad;
     private Nacionalidades[] listaEnumNac;
-    private int pesoKg;
-    private int alturaCm;
+    private double pesoKg;
+    private double alturaCm;
     private Preferencias preferenciasAlimentarias;
     private Restricciones restricciones;
     private boolean[] listaRestricciones;
@@ -24,7 +24,7 @@ public class Usuario extends Persona implements Serializable {
     private ArrayList<Mensaje> casillaDeEntrada;
     private String fechaUltimaAdicion;
 
-    public Usuario(Nacionalidades nacionalidad, int pesoKg, int alturaCm,
+    public Usuario(Nacionalidades nacionalidad, double pesoKg, double alturaCm,
             Preferencias preferenciasAlimentarias, Restricciones restricciones,
             PlanDeAlimentacion plan, String sexo, String nombre,
             String apellidos, String nombreUsuario, String fechaNacimiento,
@@ -120,21 +120,21 @@ public class Usuario extends Persona implements Serializable {
                 .orElse(null);
     }
 
-    public int getPesoKg() {
+    public double getPesoKg() {
         return pesoKg;
     }
 
-    public void setPesoKg(int pesoKg) {
+    public void setPesoKg(double pesoKg) {
         if (pesoKg > 0 && pesoKg < 501) {
             this.pesoKg = pesoKg;
         }
     }
 
-    public int getAlturaCm() {
+    public double getAlturaCm() {
         return alturaCm;
     }
 
-    public void setAlturaCm(int alturaCm) {
+    public void setAlturaCm(double alturaCm) {
         if (alturaCm > 0 && alturaCm < 266) {
             this.alturaCm = alturaCm;
         }

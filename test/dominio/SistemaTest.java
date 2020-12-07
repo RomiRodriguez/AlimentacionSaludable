@@ -43,6 +43,76 @@ public class SistemaTest {
         assertArrayEquals(expResult, result);
     }
     
+    
+    @Test
+    public void testGetListaAlimentos() {
+        Sistema instance = new Sistema();
+        ArrayList<Alimento> result = instance.getListaAlimentos();
+       assertNotNull(result);
+    }
+   
+     @Test
+    public void testGetListaUsuarios() {
+        Sistema instance = new Sistema();
+        ArrayList<Usuario> result = instance.getListaUsuarios();
+       assertNotNull(result);
+    }
+   
+      @Test
+    public void testSetListaUsuarios() {
+        Sistema instance = new Sistema();
+         ArrayList<Usuario> result = instance.getListaUsuarios();
+        ArrayList<Usuario> use = new ArrayList<>();
+        Usuario u = new Usuario();
+        u.setNombre("Ejemplo");
+        use.add(u);
+        
+        instance.setListaUsuarios(use);
+       ArrayList<Usuario> newResult = instance.getListaUsuarios();
+          assertNotEquals(result, newResult);
+    }
+    
+    @Test
+     public void testGetListaprofesionales() {
+        Sistema instance = new Sistema();
+        instance.cargarSistema();
+        ArrayList<Profesional> result = instance.getListaProfesionales();
+       assertNotNull(result);
+    }
+     
+    @Test
+      public void testSetListaProfesionales() {
+        Sistema instance = new Sistema();
+         ArrayList<Profesional> result = instance.getListaProfesionales();
+        ArrayList<Profesional> use = new ArrayList<>();
+        Profesional u = new Profesional();
+        u.setNombre("Ejemplo");
+        use.add(u);        
+        instance.setListaProfesionales(use);
+       ArrayList<Profesional> newResult = instance.getListaProfesionales();
+          assertNotEquals(result, newResult);
+    }
+      
+      @Test
+      public void testGetUsuarioActivo() {
+          Sistema instance = new Sistema();
+        Sistema.tipoUsuario result = instance.getUsuarioActivo();
+       assertNotNull(result);
+    }
+     
+      @Test
+      public void testSetUsuarioActivo() {
+          Sistema instance = new Sistema();
+        Sistema.tipoUsuario prof = Sistema.tipoUsuario.Profesional;       
+        
+        instance.setUsuarioActivo(prof);
+        
+        Sistema.tipoUsuario result = instance.getUsuarioActivo();
+        instance.guardarSistema();
+       assertEquals(result,prof);
+    }
+      
+      
     @Test
     public void testPidoDatoNumericoInvalido() {
         System.out.println("pidoDatoNumericoInvalido");
@@ -90,101 +160,6 @@ public class SistemaTest {
         boolean heightCorrectas = result.getIconHeight() == heightMal;
         boolean widthCorrectas = result.getIconWidth() == width;
         assertFalse(heightCorrectas && widthCorrectas);
-    }
-
-    @Test
-    public void testRegistroUsuario() {
-        System.out.println("registroUsuario");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unUsuario = "usuario";
-        String unSexo = "Masculino";
-        String unaFechaNacimiento = "19/11/2004";
-        double unaAltura = 1.0;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
-        double unPeso = 1.0;
-        Usuario.Nacionalidades unaNacionalidad = Usuario.Nacionalidades.Uruguaya;
-        Sistema instance = new Sistema();
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        assertTrue(instance.getListaUsuarios().size()>0);
-    }
-    
-    @Test
-    public void testRegistroUsuarioInvalido() {
-        System.out.println("registroUsuario");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unUsuario = "usuario";
-        String unSexo = "Masculino";
-        String unaFechaNacimiento = "19/11/2004";
-        double unaAltura = 1.0;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
-        double unPeso = 1.0;
-        Usuario.Nacionalidades unaNacionalidad = Usuario.Nacionalidades.Uruguaya;
-        Sistema instance = new Sistema();
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        assertFalse(instance.getListaUsuarios().size()>1);
-    }
-
-    @Test
-    public void testRegistroProfesionalInvalido() {
-        System.out.println("registroProfesionalInvalido");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unNombreUsuario = "usuario";
-        String unNombreTitulo = "titulo";
-        Profesional.Pais unPais = Profesional.Pais.Uruguay;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
-        String unaFechaNacimiento = "19/11/2004";
-        String unaFechaGraduacion = "19/11/2004";
-        Profesional.Pais unPaisTitulo = Profesional.Pais.Uruguay;
-        Sistema instance = new Sistema();
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        assertFalse(instance.getListaProfesionales().size()>1);
-    }
-    
-    @Test
-    public void testRegistroProfesional() {
-        System.out.println("registroProfesional");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unNombreUsuario = "usuario";
-        String unNombreTitulo = "titulo";
-        Profesional.Pais unPais = Profesional.Pais.Uruguay;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
-        String unaFechaNacimiento = "19/11/2004";
-        String unaFechaGraduacion = "19/11/2004";
-        Profesional.Pais unPaisTitulo = Profesional.Pais.Uruguay;
-        Sistema instance = new Sistema();
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        assertTrue(instance.getListaProfesionales().size()>0);
-    }
-
-    @Test
-    public void testRegistroAlimento() {
-        System.out.println("registroAlimento");
-        String nombreAlim = "";
-        Alimento.TipoAlimento unTipo = Alimento.TipoAlimento.Otro;
-        Alimento a = new Alimento();
-        boolean[] unaListaNutrientes = new boolean[a.getListaNutrientesSeleccionados().length];
-        Sistema instance = new Sistema();
-        instance.registroAlimento(nombreAlim, unTipo, unaListaNutrientes);
-        assertTrue(instance.getListaAlimentos().size()>0);
-    }
-    
-    @Test
-    public void testRegistroAlimentoInvalido() {
-        System.out.println("registroAlimentoInvalido");
-        String nombreAlim = "";
-        Alimento.TipoAlimento unTipo = Alimento.TipoAlimento.Otro;
-        Alimento a = new Alimento();
-        boolean[] unaListaNutrientes = new boolean[a.getListaNutrientesSeleccionados().length];
-        Sistema instance = new Sistema();
-        instance.registroAlimento(nombreAlim, unTipo, unaListaNutrientes);
-        instance.registroAlimento(nombreAlim, unTipo, unaListaNutrientes);
-        assertFalse(instance.getListaAlimentos().size()>1);
     }
     
     @Test

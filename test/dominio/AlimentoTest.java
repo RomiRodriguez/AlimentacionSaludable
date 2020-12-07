@@ -58,13 +58,32 @@ public class AlimentoTest {
         assertEquals(expResult, result);
     }
 
+    
+    @Test
+    public void testSetLists() {
+         Alimento instance = new Alimento();
+         Alimento.Nutrientes[] lista = new Alimento.Nutrientes[1];
+         instance.setListaEnumNutrientes(lista);
+           Alimento.TipoAlimento[] tipos = new Alimento.TipoAlimento[1]; 
+         instance.setListaEnumTipoAlimento(tipos);
+         boolean[] activos = new boolean[1];
+         instance.setListaNutrientesSeleccionados(activos);
+         assertNotNull(instance.getListaEnumNutrientes());
+          assertNotNull(instance.getListaEnumTipoAlimento());
+           assertNotNull(instance.getListaNutrientesSeleccionados());
+    }
+    
+    
+    
+   
     @Test
     public void testGetTipoCereal() {
-        System.out.println("getTipo");
+        System.out.println("setTipo");
         Alimento instance = new Alimento();
         instance.setTipo(Alimento.TipoAlimento.Cereal);
-        Alimento.TipoAlimento expResult = Alimento.TipoAlimento.Cereal;
-        Alimento.TipoAlimento result = instance.getTipo();
-        assertEquals(expResult, result);
+Alimento.TipoAlimento get = instance.getTipo();
+        assertEquals("Cereal",get);
     }
+    
+    
 }

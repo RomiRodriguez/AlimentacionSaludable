@@ -1,280 +1,267 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PanelRegistroAlimento.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlimentacionSaludable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">PanelRegistroAlimento.java</span></div><h1>PanelRegistroAlimento.java</h1><pre class="source lang-java linenums">package interfaz;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PanelRegistroAlimento.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlimentacionSaludable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">PanelRegistroAlimento.java</span></div><h1>PanelRegistroAlimento.java</h1><pre class="source lang-java linenums">package interfaz;
 
 import dominio.Sistema;
 import dominio.Alimento;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class PanelRegistroAlimento extends javax.swing.JPanel {
 
-    //Atributos
     private Sistema sistema;
     private Alimento alimento;
     private JFrame ventana;
 
-    //Cosntructor
-<span class="nc" id="L17">    public PanelRegistroAlimento(Sistema unSistema, JFrame unaVentana) {</span>
-<span class="nc" id="L18">        initComponents();</span>
-<span class="nc" id="L19">        sistema = unSistema;</span>
-<span class="nc" id="L20">        ventana = unaVentana;</span>
-<span class="nc" id="L21">        alimento = new Alimento();</span>
-<span class="nc" id="L22">        Alimento.TipoAlimento[] listaTipoAlimento = alimento.getListaEnumTipoAlimento();</span>
-<span class="nc" id="L23">        listaTiposAlimentos.setModel(new DefaultComboBoxModel(listaTipoAlimento));</span>
-<span class="nc" id="L24">        listaTiposAlimentos.setSelectedIndex(Alimento.TipoAlimento.Fruta.ordinal());</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L14">    public PanelRegistroAlimento(Sistema unSistema, JFrame unaVentana) {</span>
+<span class="nc" id="L15">        initComponents();</span>
+<span class="nc" id="L16">        sistema = unSistema;</span>
+<span class="nc" id="L17">        ventana = unaVentana;</span>
+<span class="nc" id="L18">        alimento = new Alimento();</span>
+<span class="nc" id="L19">        Alimento.TipoAlimento[] listaTipoAlimento = alimento.getListaEnumTipoAlimento();</span>
+<span class="nc" id="L20">        listaTiposAlimentos.setModel(new DefaultComboBoxModel(listaTipoAlimento));</span>
+<span class="nc" id="L21">        listaTiposAlimentos.setSelectedIndex(Alimento.TipoAlimento.Fruta.ordinal());</span>
+<span class="nc" id="L22">    }</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L31">        panelRegAlimento = new javax.swing.JPanel();</span>
-<span class="nc" id="L32">        etiquetaRegistroAlim = new javax.swing.JLabel();</span>
-<span class="nc" id="L33">        etiquetaNombAlim = new javax.swing.JLabel();</span>
-<span class="nc" id="L34">        cajaNombreAlim = new javax.swing.JTextField();</span>
-<span class="nc" id="L35">        etiquetaTipoAlim = new javax.swing.JLabel();</span>
-<span class="nc" id="L36">        listaTiposAlimentos = new javax.swing.JComboBox&lt;&gt;();</span>
-<span class="nc" id="L37">        btnAceptarRegAlim = new javax.swing.JButton();</span>
-<span class="nc" id="L38">        checkBoxProteinas = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L39">        checkBoxLipidos = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L40">        checkBoxHidratosDeCarbono = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L41">        checkBoxVitaminas = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L42">        checkBoxMinerales = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L43">        checkBoxAgua = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L44">        checkBoxFibra = new javax.swing.JCheckBox();</span>
-<span class="nc" id="L45">        etiquetaErrorNombreAlimento = new javax.swing.JLabel();</span>
-<span class="nc" id="L46">        etiquetaMensajeAlAceptar = new javax.swing.JLabel();</span>
-<span class="nc" id="L47">        etiquetaTituloPpalesNutrientes = new javax.swing.JLabel();</span>
+<span class="nc" id="L28">        panelRegAlimento = new javax.swing.JPanel();</span>
+<span class="nc" id="L29">        etiquetaRegistroAlim = new javax.swing.JLabel();</span>
+<span class="nc" id="L30">        etiquetaNombAlim = new javax.swing.JLabel();</span>
+<span class="nc" id="L31">        cajaNombreAlim = new javax.swing.JTextField();</span>
+<span class="nc" id="L32">        etiquetaTipoAlim = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        listaTiposAlimentos = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L34">        btnAceptarRegAlim = new javax.swing.JButton();</span>
+<span class="nc" id="L35">        checkBoxProteinas = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L36">        checkBoxLipidos = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L37">        checkBoxHidratosDeCarbono = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L38">        checkBoxVitaminas = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L39">        checkBoxMinerales = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L40">        checkBoxAgua = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L41">        checkBoxFibra = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L42">        etiquetaErrorNombreAlimento = new javax.swing.JLabel();</span>
+<span class="nc" id="L43">        etiquetaMensajeAlAceptar = new javax.swing.JLabel();</span>
+<span class="nc" id="L44">        etiquetaTituloPpalesNutrientes = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L49">        setPreferredSize(new java.awt.Dimension(1147, 784));</span>
+<span class="nc" id="L46">        setPreferredSize(new java.awt.Dimension(1147, 784));</span>
 
-<span class="nc" id="L51">        panelRegAlimento.setBackground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L52">        panelRegAlimento.setPreferredSize(new java.awt.Dimension(1147, 784));</span>
-<span class="nc" id="L53">        panelRegAlimento.setLayout(null);</span>
+<span class="nc" id="L48">        panelRegAlimento.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L49">        panelRegAlimento.setPreferredSize(new java.awt.Dimension(1147, 784));</span>
+<span class="nc" id="L50">        panelRegAlimento.setLayout(null);</span>
 
-<span class="nc" id="L55">        etiquetaRegistroAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 36)); // NOI18N</span>
-<span class="nc" id="L56">        etiquetaRegistroAlim.setForeground(new java.awt.Color(255, 0, 102));</span>
-<span class="nc" id="L57">        etiquetaRegistroAlim.setText(&quot;Registro Alimento&quot;);</span>
-<span class="nc" id="L58">        panelRegAlimento.add(etiquetaRegistroAlim);</span>
-<span class="nc" id="L59">        etiquetaRegistroAlim.setBounds(360, 10, 310, 44);</span>
+<span class="nc" id="L52">        etiquetaRegistroAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 36)); // NOI18N</span>
+<span class="nc" id="L53">        etiquetaRegistroAlim.setForeground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L54">        etiquetaRegistroAlim.setText(&quot;Registro Alimento&quot;);</span>
+<span class="nc" id="L55">        panelRegAlimento.add(etiquetaRegistroAlim);</span>
+<span class="nc" id="L56">        etiquetaRegistroAlim.setBounds(360, 10, 310, 44);</span>
 
-<span class="nc" id="L61">        etiquetaNombAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L62">        etiquetaNombAlim.setText(&quot;Nombre:&quot;);</span>
-<span class="nc" id="L63">        panelRegAlimento.add(etiquetaNombAlim);</span>
-<span class="nc" id="L64">        etiquetaNombAlim.setBounds(300, 130, 100, 29);</span>
+<span class="nc" id="L58">        etiquetaNombAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L59">        etiquetaNombAlim.setText(&quot;Nombre:&quot;);</span>
+<span class="nc" id="L60">        panelRegAlimento.add(etiquetaNombAlim);</span>
+<span class="nc" id="L61">        etiquetaNombAlim.setBounds(300, 130, 100, 29);</span>
 
-<span class="nc" id="L66">        cajaNombreAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L67">        cajaNombreAlim.setPreferredSize(new java.awt.Dimension(8, 32));</span>
-<span class="nc" id="L68">        cajaNombreAlim.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+<span class="nc" id="L63">        cajaNombreAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L64">        cajaNombreAlim.setPreferredSize(new java.awt.Dimension(8, 32));</span>
+<span class="nc" id="L65">        cajaNombreAlim.addFocusListener(new java.awt.event.FocusAdapter() {</span>
             public void focusLost(java.awt.event.FocusEvent evt) {
-<span class="nc" id="L70">                cajaNombreAlimFocusLost(evt);</span>
-<span class="nc" id="L71">            }</span>
+<span class="nc" id="L67">                cajaNombreAlimFocusLost(evt);</span>
+<span class="nc" id="L68">            }</span>
         });
-<span class="nc" id="L73">        panelRegAlimento.add(cajaNombreAlim);</span>
-<span class="nc" id="L74">        cajaNombreAlim.setBounds(420, 130, 230, 32);</span>
+<span class="nc" id="L70">        panelRegAlimento.add(cajaNombreAlim);</span>
+<span class="nc" id="L71">        cajaNombreAlim.setBounds(420, 130, 230, 32);</span>
 
-<span class="nc" id="L76">        etiquetaTipoAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L77">        etiquetaTipoAlim.setText(&quot;Tipo de alimento:&quot;);</span>
-<span class="nc" id="L78">        panelRegAlimento.add(etiquetaTipoAlim);</span>
-<span class="nc" id="L79">        etiquetaTipoAlim.setBounds(210, 180, 210, 29);</span>
+<span class="nc" id="L73">        etiquetaTipoAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L74">        etiquetaTipoAlim.setText(&quot;Tipo de alimento:&quot;);</span>
+<span class="nc" id="L75">        panelRegAlimento.add(etiquetaTipoAlim);</span>
+<span class="nc" id="L76">        etiquetaTipoAlim.setBounds(210, 180, 210, 29);</span>
 
-<span class="nc" id="L81">        listaTiposAlimentos.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L82">        listaTiposAlimentos.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
-<span class="nc" id="L83">        listaTiposAlimentos.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L78">        listaTiposAlimentos.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L79">        listaTiposAlimentos.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
+<span class="nc" id="L80">        panelRegAlimento.add(listaTiposAlimentos);</span>
+<span class="nc" id="L81">        listaTiposAlimentos.setBounds(420, 180, 230, 35);</span>
+
+<span class="nc" id="L83">        btnAceptarRegAlim.setBackground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L84">        btnAceptarRegAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L85">        btnAceptarRegAlim.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L86">        btnAceptarRegAlim.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L87">        btnAceptarRegAlim.setContentAreaFilled(false);</span>
+<span class="nc" id="L88">        btnAceptarRegAlim.setOpaque(true);</span>
+<span class="nc" id="L89">        btnAceptarRegAlim.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L85">                listaTiposAlimentosActionPerformed(evt);</span>
-<span class="nc" id="L86">            }</span>
+<span class="nc" id="L91">                btnAceptarRegAlimActionPerformed(evt);</span>
+<span class="nc" id="L92">            }</span>
         });
-<span class="nc" id="L88">        panelRegAlimento.add(listaTiposAlimentos);</span>
-<span class="nc" id="L89">        listaTiposAlimentos.setBounds(420, 180, 230, 35);</span>
+<span class="nc" id="L94">        panelRegAlimento.add(btnAceptarRegAlim);</span>
+<span class="nc" id="L95">        btnAceptarRegAlim.setBounds(835, 660, 130, 37);</span>
 
-<span class="nc" id="L91">        btnAceptarRegAlim.setBackground(new java.awt.Color(255, 0, 102));</span>
-<span class="nc" id="L92">        btnAceptarRegAlim.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L93">        btnAceptarRegAlim.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L94">        btnAceptarRegAlim.setText(&quot;Aceptar&quot;);</span>
-<span class="nc" id="L95">        btnAceptarRegAlim.setContentAreaFilled(false);</span>
-<span class="nc" id="L96">        btnAceptarRegAlim.setOpaque(true);</span>
-<span class="nc" id="L97">        btnAceptarRegAlim.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L97">        checkBoxProteinas.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L98">        checkBoxProteinas.setText(&quot;Proteínas&quot;);</span>
+<span class="nc" id="L99">        checkBoxProteinas.setContentAreaFilled(false);</span>
+<span class="nc" id="L100">        checkBoxProteinas.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L99">                btnAceptarRegAlimActionPerformed(evt);</span>
-<span class="nc" id="L100">            }</span>
+<span class="nc" id="L102">                checkBoxProteinasActionPerformed(evt);</span>
+<span class="nc" id="L103">            }</span>
         });
-<span class="nc" id="L102">        panelRegAlimento.add(btnAceptarRegAlim);</span>
-<span class="nc" id="L103">        btnAceptarRegAlim.setBounds(835, 660, 130, 37);</span>
+<span class="nc" id="L105">        panelRegAlimento.add(checkBoxProteinas);</span>
+<span class="nc" id="L106">        checkBoxProteinas.setBounds(150, 270, 140, 35);</span>
 
-<span class="nc" id="L105">        checkBoxProteinas.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L106">        checkBoxProteinas.setText(&quot;Proteínas&quot;);</span>
-<span class="nc" id="L107">        checkBoxProteinas.setContentAreaFilled(false);</span>
-<span class="nc" id="L108">        checkBoxProteinas.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L108">        checkBoxLipidos.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L109">        checkBoxLipidos.setText(&quot;Lípidos&quot;);</span>
+<span class="nc" id="L110">        checkBoxLipidos.setContentAreaFilled(false);</span>
+<span class="nc" id="L111">        checkBoxLipidos.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L110">                checkBoxProteinasActionPerformed(evt);</span>
-<span class="nc" id="L111">            }</span>
+<span class="nc" id="L113">                checkBoxLipidosActionPerformed(evt);</span>
+<span class="nc" id="L114">            }</span>
         });
-<span class="nc" id="L113">        panelRegAlimento.add(checkBoxProteinas);</span>
-<span class="nc" id="L114">        checkBoxProteinas.setBounds(150, 270, 140, 35);</span>
+<span class="nc" id="L116">        panelRegAlimento.add(checkBoxLipidos);</span>
+<span class="nc" id="L117">        checkBoxLipidos.setBounds(290, 270, 120, 35);</span>
 
-<span class="nc" id="L116">        checkBoxLipidos.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L117">        checkBoxLipidos.setText(&quot;Lípidos&quot;);</span>
-<span class="nc" id="L118">        checkBoxLipidos.setContentAreaFilled(false);</span>
-<span class="nc" id="L119">        checkBoxLipidos.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L119">        checkBoxHidratosDeCarbono.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L120">        checkBoxHidratosDeCarbono.setText(&quot;Hidratos de Carbono&quot;);</span>
+<span class="nc" id="L121">        checkBoxHidratosDeCarbono.setContentAreaFilled(false);</span>
+<span class="nc" id="L122">        checkBoxHidratosDeCarbono.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L121">                checkBoxLipidosActionPerformed(evt);</span>
-<span class="nc" id="L122">            }</span>
+<span class="nc" id="L124">                checkBoxHidratosDeCarbonoActionPerformed(evt);</span>
+<span class="nc" id="L125">            }</span>
         });
-<span class="nc" id="L124">        panelRegAlimento.add(checkBoxLipidos);</span>
-<span class="nc" id="L125">        checkBoxLipidos.setBounds(290, 270, 120, 35);</span>
+<span class="nc" id="L127">        panelRegAlimento.add(checkBoxHidratosDeCarbono);</span>
+<span class="nc" id="L128">        checkBoxHidratosDeCarbono.setBounds(410, 270, 243, 37);</span>
 
-<span class="nc" id="L127">        checkBoxHidratosDeCarbono.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L128">        checkBoxHidratosDeCarbono.setText(&quot;Hidratos de Carbono&quot;);</span>
-<span class="nc" id="L129">        checkBoxHidratosDeCarbono.setContentAreaFilled(false);</span>
-<span class="nc" id="L130">        checkBoxHidratosDeCarbono.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L130">        checkBoxVitaminas.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L131">        checkBoxVitaminas.setText(&quot;Vitaminas&quot;);</span>
+<span class="nc" id="L132">        checkBoxVitaminas.setContentAreaFilled(false);</span>
+<span class="nc" id="L133">        checkBoxVitaminas.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L132">                checkBoxHidratosDeCarbonoActionPerformed(evt);</span>
-<span class="nc" id="L133">            }</span>
+<span class="nc" id="L135">                checkBoxVitaminasActionPerformed(evt);</span>
+<span class="nc" id="L136">            }</span>
         });
-<span class="nc" id="L135">        panelRegAlimento.add(checkBoxHidratosDeCarbono);</span>
-<span class="nc" id="L136">        checkBoxHidratosDeCarbono.setBounds(410, 270, 257, 37);</span>
+<span class="nc" id="L138">        panelRegAlimento.add(checkBoxVitaminas);</span>
+<span class="nc" id="L139">        checkBoxVitaminas.setBounds(670, 270, 150, 37);</span>
 
-<span class="nc" id="L138">        checkBoxVitaminas.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L139">        checkBoxVitaminas.setText(&quot;Vitaminas&quot;);</span>
-<span class="nc" id="L140">        checkBoxVitaminas.setContentAreaFilled(false);</span>
-<span class="nc" id="L141">        checkBoxVitaminas.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L141">        checkBoxMinerales.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L142">        checkBoxMinerales.setText(&quot;Minerales&quot;);</span>
+<span class="nc" id="L143">        checkBoxMinerales.setContentAreaFilled(false);</span>
+<span class="nc" id="L144">        checkBoxMinerales.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L143">                checkBoxVitaminasActionPerformed(evt);</span>
-<span class="nc" id="L144">            }</span>
+<span class="nc" id="L146">                checkBoxMineralesActionPerformed(evt);</span>
+<span class="nc" id="L147">            }</span>
         });
-<span class="nc" id="L146">        panelRegAlimento.add(checkBoxVitaminas);</span>
-<span class="nc" id="L147">        checkBoxVitaminas.setBounds(670, 270, 150, 37);</span>
+<span class="nc" id="L149">        panelRegAlimento.add(checkBoxMinerales);</span>
+<span class="nc" id="L150">        checkBoxMinerales.setBounds(150, 310, 140, 35);</span>
 
-<span class="nc" id="L149">        checkBoxMinerales.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L150">        checkBoxMinerales.setText(&quot;Minerales&quot;);</span>
-<span class="nc" id="L151">        checkBoxMinerales.setContentAreaFilled(false);</span>
-<span class="nc" id="L152">        checkBoxMinerales.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L152">        checkBoxAgua.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L153">        checkBoxAgua.setText(&quot;Agua&quot;);</span>
+<span class="nc" id="L154">        checkBoxAgua.setContentAreaFilled(false);</span>
+<span class="nc" id="L155">        checkBoxAgua.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L154">                checkBoxMineralesActionPerformed(evt);</span>
-<span class="nc" id="L155">            }</span>
+<span class="nc" id="L157">                checkBoxAguaActionPerformed(evt);</span>
+<span class="nc" id="L158">            }</span>
         });
-<span class="nc" id="L157">        panelRegAlimento.add(checkBoxMinerales);</span>
-<span class="nc" id="L158">        checkBoxMinerales.setBounds(150, 310, 140, 35);</span>
+<span class="nc" id="L160">        panelRegAlimento.add(checkBoxAgua);</span>
+<span class="nc" id="L161">        checkBoxAgua.setBounds(290, 310, 100, 35);</span>
 
-<span class="nc" id="L160">        checkBoxAgua.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L161">        checkBoxAgua.setText(&quot;Agua&quot;);</span>
-<span class="nc" id="L162">        checkBoxAgua.setContentAreaFilled(false);</span>
-<span class="nc" id="L163">        checkBoxAgua.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L163">        checkBoxFibra.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L164">        checkBoxFibra.setText(&quot;Fibra&quot;);</span>
+<span class="nc" id="L165">        checkBoxFibra.setContentAreaFilled(false);</span>
+<span class="nc" id="L166">        checkBoxFibra.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L165">                checkBoxAguaActionPerformed(evt);</span>
-<span class="nc" id="L166">            }</span>
+<span class="nc" id="L168">                checkBoxFibraActionPerformed(evt);</span>
+<span class="nc" id="L169">            }</span>
         });
-<span class="nc" id="L168">        panelRegAlimento.add(checkBoxAgua);</span>
-<span class="nc" id="L169">        checkBoxAgua.setBounds(290, 310, 100, 35);</span>
+<span class="nc" id="L171">        panelRegAlimento.add(checkBoxFibra);</span>
+<span class="nc" id="L172">        checkBoxFibra.setBounds(410, 310, 120, 37);</span>
 
-<span class="nc" id="L171">        checkBoxFibra.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L172">        checkBoxFibra.setText(&quot;Fibra&quot;);</span>
-<span class="nc" id="L173">        checkBoxFibra.setContentAreaFilled(false);</span>
-<span class="nc" id="L174">        checkBoxFibra.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L176">                checkBoxFibraActionPerformed(evt);</span>
-<span class="nc" id="L177">            }</span>
-        });
-<span class="nc" id="L179">        panelRegAlimento.add(checkBoxFibra);</span>
-<span class="nc" id="L180">        checkBoxFibra.setBounds(410, 310, 120, 37);</span>
+<span class="nc" id="L174">        etiquetaErrorNombreAlimento.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L175">        panelRegAlimento.add(etiquetaErrorNombreAlimento);</span>
+<span class="nc" id="L176">        etiquetaErrorNombreAlimento.setBounds(710, 130, 410, 26);</span>
 
-<span class="nc" id="L182">        etiquetaErrorNombreAlimento.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L183">        panelRegAlimento.add(etiquetaErrorNombreAlimento);</span>
-<span class="nc" id="L184">        etiquetaErrorNombreAlimento.setBounds(710, 130, 410, 26);</span>
+<span class="nc" id="L178">        etiquetaMensajeAlAceptar.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L179">        panelRegAlimento.add(etiquetaMensajeAlAceptar);</span>
+<span class="nc" id="L180">        etiquetaMensajeAlAceptar.setBounds(700, 610, 400, 29);</span>
 
-<span class="nc" id="L186">        etiquetaMensajeAlAceptar.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L187">        panelRegAlimento.add(etiquetaMensajeAlAceptar);</span>
-<span class="nc" id="L188">        etiquetaMensajeAlAceptar.setBounds(700, 610, 400, 29);</span>
+<span class="nc" id="L182">        etiquetaTituloPpalesNutrientes.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 24)); // NOI18N</span>
+<span class="nc" id="L183">        etiquetaTituloPpalesNutrientes.setText(&quot;Principales Nutrientes:&quot;);</span>
+<span class="nc" id="L184">        panelRegAlimento.add(etiquetaTituloPpalesNutrientes);</span>
+<span class="nc" id="L185">        etiquetaTituloPpalesNutrientes.setBounds(130, 230, 280, 29);</span>
 
-<span class="nc" id="L190">        etiquetaTituloPpalesNutrientes.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 24)); // NOI18N</span>
-<span class="nc" id="L191">        etiquetaTituloPpalesNutrientes.setText(&quot;Principales Nutrientes:&quot;);</span>
-<span class="nc" id="L192">        panelRegAlimento.add(etiquetaTituloPpalesNutrientes);</span>
-<span class="nc" id="L193">        etiquetaTituloPpalesNutrientes.setBounds(130, 230, 280, 29);</span>
-
-<span class="nc" id="L195">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
-<span class="nc" id="L196">        this.setLayout(layout);</span>
-<span class="nc" id="L197">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L198">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L199">            .addComponent(panelRegAlimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L187">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L188">        this.setLayout(layout);</span>
+<span class="nc" id="L189">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L190">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L191">            .addComponent(panelRegAlimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L201">        layout.setVerticalGroup(</span>
-<span class="nc" id="L202">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L203">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L204">                .addComponent(panelRegAlimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L205">                .addGap(0, 0, Short.MAX_VALUE))</span>
+<span class="nc" id="L193">        layout.setVerticalGroup(</span>
+<span class="nc" id="L194">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L195">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L196">                .addComponent(panelRegAlimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L197">                .addGap(0, 0, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L207">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L199">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void checkBoxHidratosDeCarbonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxHidratosDeCarbonoActionPerformed
-<span class="nc" id="L210">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.HidratosDeCarbono.ordinal()];</span>
-<span class="nc bnc" id="L211" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L212">    }//GEN-LAST:event_checkBoxHidratosDeCarbonoActionPerformed</span>
+<span class="nc" id="L202">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.HidratosDeCarbono.ordinal()];</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L204">    }//GEN-LAST:event_checkBoxHidratosDeCarbonoActionPerformed</span>
 
     private void checkBoxFibraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxFibraActionPerformed
-<span class="nc" id="L215">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Fibra.ordinal()];</span>
-<span class="nc bnc" id="L216" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L217">    }//GEN-LAST:event_checkBoxFibraActionPerformed</span>
+<span class="nc" id="L207">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Fibra.ordinal()];</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L209">    }//GEN-LAST:event_checkBoxFibraActionPerformed</span>
 
     private void cajaNombreAlimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreAlimFocusLost
-<span class="nc" id="L220">        String nombre = cajaNombreAlim.getText();</span>
-<span class="nc bnc" id="L221" title="All 2 branches missed.">        if (nombre.trim().isEmpty()) {</span>
-<span class="nc" id="L222">            etiquetaErrorNombreAlimento.setText(&quot;El nombre no puede ser vacío&quot;);</span>
+<span class="nc" id="L212">        String nombre = cajaNombreAlim.getText();</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">        if (nombre.trim().isEmpty()) {</span>
+<span class="nc" id="L214">            etiquetaErrorNombreAlimento.setText(&quot;Debe completar este campo&quot;);</span>
         } else {
-<span class="nc" id="L224">            alimento.setNombre(nombre);</span>
-<span class="nc bnc" id="L225" title="All 2 branches missed.">            if (sistema.getListaAlimentos().contains(alimento)) {</span>
-<span class="nc" id="L226">                etiquetaErrorNombreAlimento.setText(&quot;Esa comida ya se encuentra en el sistema&quot;);</span>
+<span class="nc" id="L216">            alimento.setNombre(nombre);</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">            if (sistema.getListaAlimentos().contains(alimento)) {</span>
+<span class="nc" id="L218">                etiquetaErrorNombreAlimento.setText(&quot;Esa comida ya se encuentra en el sistema&quot;);</span>
             } else {
-<span class="nc" id="L228">                etiquetaErrorNombreAlimento.setText(&quot; &quot;);</span>
+<span class="nc" id="L220">                etiquetaErrorNombreAlimento.setText(&quot;&quot;);</span>
             }
         }
-<span class="nc" id="L231">    }//GEN-LAST:event_cajaNombreAlimFocusLost</span>
+<span class="nc" id="L223">    }//GEN-LAST:event_cajaNombreAlimFocusLost</span>
 
     private void btnAceptarRegAlimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarRegAlimActionPerformed
-<span class="nc" id="L234">        Alimento comparo = new Alimento();</span>
-<span class="nc" id="L235">        comparo.setNombre(cajaNombreAlim.getText());</span>
-<span class="nc bnc" id="L236" title="All 2 branches missed.">        boolean nombre = !cajaNombreAlim.getText().trim().isEmpty()</span>
-<span class="nc bnc" id="L237" title="All 2 branches missed.">                &amp;&amp; !sistema.getListaAlimentos().contains(comparo);</span>
-<span class="nc bnc" id="L238" title="All 2 branches missed.">        if (nombre) {</span>
-<span class="nc" id="L239">            alimento.setNombre(cajaNombreAlim.getText());</span>
-<span class="nc" id="L240">            alimento.setTipo(alimento.getListaEnumTipoAlimento()[listaTiposAlimentos.getSelectedIndex()]);</span>
-<span class="nc" id="L241">            etiquetaMensajeAlAceptar.setText(&quot;Alimento registrado correctamente&quot;);</span>
-<span class="nc" id="L242">            sistema.getListaAlimentos().add(alimento);</span>
+<span class="nc" id="L226">        Alimento comparo = new Alimento();</span>
+<span class="nc" id="L227">        comparo.setNombre(cajaNombreAlim.getText());</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        boolean nombre = !cajaNombreAlim.getText().trim().isEmpty()</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">                &amp;&amp; !sistema.getListaAlimentos().contains(comparo);</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        if (nombre) {</span>
+<span class="nc" id="L231">            alimento.setNombre(cajaNombreAlim.getText());</span>
+<span class="nc" id="L232">            alimento.setTipo(alimento.getListaEnumTipoAlimento()[listaTiposAlimentos.getSelectedIndex()]);</span>
+<span class="nc" id="L233">            etiquetaMensajeAlAceptar.setText(&quot;Alimento registrado correctamente&quot;);</span>
+<span class="nc" id="L234">            sistema.getListaAlimentos().add(alimento);</span>
         } else {
-<span class="nc" id="L244">            etiquetaMensajeAlAceptar.setText(&quot;Error al ingresar el alimento&quot;);</span>
+<span class="nc" id="L236">            etiquetaMensajeAlAceptar.setText(&quot;Error al ingresar el alimento&quot;);</span>
         }
-<span class="nc" id="L246">        alimento = new Alimento();</span>
-<span class="nc" id="L247">    }//GEN-LAST:event_btnAceptarRegAlimActionPerformed</span>
+<span class="nc" id="L238">        alimento = new Alimento();</span>
+<span class="nc" id="L239">    }//GEN-LAST:event_btnAceptarRegAlimActionPerformed</span>
 
     private void checkBoxProteinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxProteinasActionPerformed
-<span class="nc" id="L250">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Proteinas.ordinal()];</span>
-<span class="nc bnc" id="L251" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L252">    }//GEN-LAST:event_checkBoxProteinasActionPerformed</span>
+<span class="nc" id="L242">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Proteinas.ordinal()];</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L244">    }//GEN-LAST:event_checkBoxProteinasActionPerformed</span>
 
     private void checkBoxLipidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxLipidosActionPerformed
-<span class="nc" id="L255">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Lipidos.ordinal()];</span>
-<span class="nc bnc" id="L256" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L257">    }//GEN-LAST:event_checkBoxLipidosActionPerformed</span>
+<span class="nc" id="L247">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Lipidos.ordinal()];</span>
+<span class="nc bnc" id="L248" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L249">    }//GEN-LAST:event_checkBoxLipidosActionPerformed</span>
 
     private void checkBoxVitaminasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxVitaminasActionPerformed
-<span class="nc" id="L260">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Vitaminas.ordinal()];</span>
-<span class="nc bnc" id="L261" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L262">    }//GEN-LAST:event_checkBoxVitaminasActionPerformed</span>
+<span class="nc" id="L252">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Vitaminas.ordinal()];</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L254">    }//GEN-LAST:event_checkBoxVitaminasActionPerformed</span>
 
     private void checkBoxMineralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxMineralesActionPerformed
-<span class="nc" id="L265">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Minerales.ordinal()];</span>
-<span class="nc bnc" id="L266" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L267">    }//GEN-LAST:event_checkBoxMineralesActionPerformed</span>
+<span class="nc" id="L257">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Minerales.ordinal()];</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L259">    }//GEN-LAST:event_checkBoxMineralesActionPerformed</span>
 
     private void checkBoxAguaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAguaActionPerformed
-<span class="nc" id="L270">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Agua.ordinal()];</span>
-<span class="nc bnc" id="L271" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
-<span class="nc" id="L272">    }//GEN-LAST:event_checkBoxAguaActionPerformed</span>
-
-    private void listaTiposAlimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTiposAlimentosActionPerformed
-
-<span class="nc" id="L276">    }//GEN-LAST:event_listaTiposAlimentosActionPerformed</span>
-
+<span class="nc" id="L262">        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Agua.ordinal()];</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">        estadoActual = !estadoActual;</span>
+<span class="nc" id="L264">    }//GEN-LAST:event_checkBoxAguaActionPerformed</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarRegAlim;

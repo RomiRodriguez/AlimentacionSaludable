@@ -65,6 +65,8 @@ public class UsuarioTest {
         instance.setHistorialDelDia(historialDelDia);
         assertEquals(historialDelDia, instance.getHistorialDelDia());
     }
+    
+    
 
 
     @Test
@@ -329,6 +331,8 @@ public class UsuarioTest {
         System.out.println("setNacionalidadPeruana");
         Usuario.Nacionalidades nacionalidad = Usuario.Nacionalidades.Peruana;
         Usuario instance = new Usuario();
+        instance.inicializoListaNacionalidades();
+        instance.inicializoListaEnum();
         instance.setNacionalidad(nacionalidad);
         assertEquals(nacionalidad, instance.getNacionalidad());
     }
@@ -371,6 +375,26 @@ public class UsuarioTest {
         assertEquals(nacionalidad, instance.getNacionalidad());
     }
 
+    
+      @Test
+    public void testSetAltura() {
+        Usuario instance = new Usuario();
+        double alturaEx = instance.getAlturaCm();
+        instance.setAlturaCm(174);
+        double altura = instance.getAlturaCm();
+        assertEquals(alturaEx, altura,0);
+    }
+
+       @Test
+    public void testSetPesoKg() {
+      Usuario instance = new Usuario();
+        double pesoEx = instance.getPesoKg();
+        instance.setPesoKg(174);
+        double peso = instance.getPesoKg();
+        assertEquals(pesoEx, peso,0);
+    }
+    
+    
     @Test
     public void testGetNacionalidadSudáfricana() {
         System.out.println("getNacionalidadSudáfricana");
@@ -473,14 +497,7 @@ public class UsuarioTest {
         assertEquals(expResult, result, 0.0);
     }
 
-    @Test
-    public void testSetPesoKg() {
-        System.out.println("setPesoKg");
-        Usuario instance = new Usuario();
-        double pesoKg = 0;
-        instance.setPesoKg(pesoKg);
-        assertEquals(instance.getPesoKg(), pesoKg, 0.0);
-    }
+    
     
     @Test
     public void testSetPesoKgInvalido() {

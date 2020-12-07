@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PanelRegistrar.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlimentacionSaludable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">PanelRegistrar.java</span></div><h1>PanelRegistrar.java</h1><pre class="source lang-java linenums">package interfaz;
+
+import dominio.Sistema;
+import javax.swing.JFrame;
+
+public class PanelRegistrar extends javax.swing.JPanel {
+
+    private Sistema sistema;
+    private JFrame ventana;
+
+<span class="nc" id="L11">    public PanelRegistrar(Sistema unSistema, JFrame unaVentana) {</span>
+<span class="nc" id="L12">        initComponents();</span>
+<span class="nc" id="L13">        sistema = unSistema;</span>
+<span class="nc" id="L14">        ventana = unaVentana;</span>
+<span class="nc" id="L15">        ventana.add(this);</span>
+<span class="nc" id="L16">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L22">        jPanel = new javax.swing.JPanel();</span>
+<span class="nc" id="L23">        etiquetaREgistro = new javax.swing.JLabel();</span>
+<span class="nc" id="L24">        etiquetaEstaRegistrado = new javax.swing.JLabel();</span>
+<span class="nc" id="L25">        btnIngresar = new javax.swing.JButton();</span>
+<span class="nc" id="L26">        btnRegistroProfesional = new javax.swing.JButton();</span>
+<span class="nc" id="L27">        btnRegistroUsuario = new javax.swing.JButton();</span>
+
+<span class="nc" id="L29">        jPanel.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L30">        jPanel.setPreferredSize(new java.awt.Dimension(1147, 784));</span>
+<span class="nc" id="L31">        jPanel.setLayout(null);</span>
+
+<span class="nc" id="L33">        etiquetaREgistro.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 48)); // NOI18N</span>
+<span class="nc" id="L34">        etiquetaREgistro.setForeground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L35">        etiquetaREgistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L36">        etiquetaREgistro.setText(&quot;Registro&quot;);</span>
+<span class="nc" id="L37">        jPanel.add(etiquetaREgistro);</span>
+<span class="nc" id="L38">        etiquetaREgistro.setBounds(420, 80, 290, 100);</span>
+
+<span class="nc" id="L40">        etiquetaEstaRegistrado.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L41">        etiquetaEstaRegistrado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L42">        etiquetaEstaRegistrado.setText(&quot;¿Ya está registrado?&quot;);</span>
+<span class="nc" id="L43">        jPanel.add(etiquetaEstaRegistrado);</span>
+<span class="nc" id="L44">        etiquetaEstaRegistrado.setBounds(370, 520, 230, 29);</span>
+
+<span class="nc" id="L46">        btnIngresar.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L47">        btnIngresar.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L48">        btnIngresar.setForeground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L49">        btnIngresar.setText(&quot;Ingrese&quot;);</span>
+<span class="nc" id="L50">        btnIngresar.setBorder(null);</span>
+<span class="nc" id="L51">        btnIngresar.setBorderPainted(false);</span>
+<span class="nc" id="L52">        btnIngresar.setContentAreaFilled(false);</span>
+<span class="nc" id="L53">        btnIngresar.setOpaque(true);</span>
+<span class="nc" id="L54">        btnIngresar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L56">                btnIngresarActionPerformed(evt);</span>
+<span class="nc" id="L57">            }</span>
+        });
+<span class="nc" id="L59">        jPanel.add(btnIngresar);</span>
+<span class="nc" id="L60">        btnIngresar.setBounds(620, 520, 100, 30);</span>
+
+<span class="nc" id="L62">        btnRegistroProfesional.setBackground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L63">        btnRegistroProfesional.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L64">        btnRegistroProfesional.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L65">        btnRegistroProfesional.setText(&quot;Profesional&quot;);</span>
+<span class="nc" id="L66">        btnRegistroProfesional.setContentAreaFilled(false);</span>
+<span class="nc" id="L67">        btnRegistroProfesional.setOpaque(true);</span>
+<span class="nc" id="L68">        btnRegistroProfesional.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L70">                btnRegistroProfesionalActionPerformed(evt);</span>
+<span class="nc" id="L71">            }</span>
+        });
+<span class="nc" id="L73">        jPanel.add(btnRegistroProfesional);</span>
+<span class="nc" id="L74">        btnRegistroProfesional.setBounds(590, 330, 210, 37);</span>
+
+<span class="nc" id="L76">        btnRegistroUsuario.setBackground(new java.awt.Color(255, 0, 102));</span>
+<span class="nc" id="L77">        btnRegistroUsuario.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L78">        btnRegistroUsuario.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L79">        btnRegistroUsuario.setText(&quot;Usuario&quot;);</span>
+<span class="nc" id="L80">        btnRegistroUsuario.setContentAreaFilled(false);</span>
+<span class="nc" id="L81">        btnRegistroUsuario.setOpaque(true);</span>
+<span class="nc" id="L82">        btnRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L84">                btnRegistroUsuarioActionPerformed(evt);</span>
+<span class="nc" id="L85">            }</span>
+        });
+<span class="nc" id="L87">        jPanel.add(btnRegistroUsuario);</span>
+<span class="nc" id="L88">        btnRegistroUsuario.setBounds(340, 330, 210, 37);</span>
+
+<span class="nc" id="L90">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L91">        this.setLayout(layout);</span>
+<span class="nc" id="L92">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L93">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L94">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L95">                .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L96">                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+        );
+<span class="nc" id="L98">        layout.setVerticalGroup(</span>
+<span class="nc" id="L99">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L100">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L101">                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L102">                .addGap(0, 0, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L104">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+<span class="nc" id="L107">        ventana.remove(this);</span>
+<span class="nc" id="L108">        ventana.add(new PanelIngresar(ventana, sistema));</span>
+<span class="nc" id="L109">        ventana.pack();</span>
+<span class="nc" id="L110">    }//GEN-LAST:event_btnIngresarActionPerformed</span>
+
+    private void btnRegistroProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroProfesionalActionPerformed
+<span class="nc" id="L113">        ventana.remove(this);</span>
+<span class="nc" id="L114">        ventana.add(new PanelRegistroProfesional(sistema, ventana));</span>
+<span class="nc" id="L115">        ventana.pack();</span>
+<span class="nc" id="L116">    }//GEN-LAST:event_btnRegistroProfesionalActionPerformed</span>
+
+    private void btnRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroUsuarioActionPerformed
+<span class="nc" id="L119">        ventana.remove(this);</span>
+<span class="nc" id="L120">        ventana.add(new PanelRegistroUsuario(sistema, ventana));</span>
+<span class="nc" id="L121">        ventana.pack();</span>
+<span class="nc" id="L122">    }//GEN-LAST:event_btnRegistroUsuarioActionPerformed</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnRegistroProfesional;
+    private javax.swing.JButton btnRegistroUsuario;
+    private javax.swing.JLabel etiquetaEstaRegistrado;
+    private javax.swing.JLabel etiquetaREgistro;
+    private javax.swing.JPanel jPanel;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
