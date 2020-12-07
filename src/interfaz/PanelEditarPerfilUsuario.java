@@ -4,7 +4,10 @@ import dominio.Sistema;
 import dominio.Usuario;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -36,9 +39,12 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         Usuario.Nacionalidades[] listaNac = usuario.getListaEnumNac();
         listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(listaNac));
         listaNacionalidadesUsuario.setSelectedIndex(Usuario.Nacionalidades.Uruguaya.ordinal());
-        usuario.setListaRestricciones(new boolean[usuario.getListaRestricciones().length]);
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Ninguna);
         fotoPerfil.setSize(210, 240);
+        try {
+            CargarDatosUsuario();
+        } catch (ParseException ex) {
+            Logger.getLogger(PanelEditarPerfilUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -56,8 +62,8 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         cajaApellidos = new javax.swing.JTextField();
         etiquetaPeso = new javax.swing.JLabel();
         etiquetaAltura = new javax.swing.JLabel();
-        cajaAltura = new javax.swing.JTextField();
         cajaPeso = new javax.swing.JTextField();
+        cajaAltura = new javax.swing.JTextField();
         etiquetaMedidaPeso = new javax.swing.JLabel();
         etiquetaMedidaAltura = new javax.swing.JLabel();
         btnAceptarUsuario = new javax.swing.JButton();
@@ -143,15 +149,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         panelEditarPerfilUsuario.add(etiquetaAltura);
         etiquetaAltura.setBounds(400, 280, 70, 26);
 
-        cajaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaAltura.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cajaAlturaFocusLost(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(cajaAltura);
-        cajaAltura.setBounds(480, 330, 160, 35);
-
         cajaPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         cajaPeso.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -159,7 +156,16 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             }
         });
         panelEditarPerfilUsuario.add(cajaPeso);
-        cajaPeso.setBounds(480, 280, 160, 35);
+        cajaPeso.setBounds(480, 330, 160, 35);
+
+        cajaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cajaAltura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cajaAlturaFocusLost(evt);
+            }
+        });
+        panelEditarPerfilUsuario.add(cajaAltura);
+        cajaAltura.setBounds(480, 280, 160, 35);
 
         etiquetaMedidaPeso.setText("Kg");
         panelEditarPerfilUsuario.add(etiquetaMedidaPeso);
@@ -413,6 +419,47 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CargarDatosUsuario() throws ParseException {
+        cajaNombre.setText(usuario.getNombre());
+        cajaApellidos.setText(usuario.getApellidos());
+        listaNacionalidadesUsuario.setSelectedItem(usuario.getNacionalidad());
+        fechaNacimiento.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(usuario.getFechaNacimiento()));
+        cajaAltura.setText(String.valueOf(usuario.getAlturaCm()));
+        cajaPeso.setText(String.valueOf(usuario.getPesoKg()));
+        if (usuario.getSexo().equals("Femenino")) {
+            rBtnFemeninoUsuario.setSelected(true);
+            rBtnMasculinoUsuario.setSelected(false);
+        }
+        int posicionEnum = Usuario.Restricciones.Celiaco.ordinal();
+        if (usuario.getListaRestricciones()[posicionEnum]) {
+            checkBoxCeliaco.setSelected(true);
+        }
+        posicionEnum = Usuario.Restricciones.IntoleranteALaLactosa.ordinal();
+        if (usuario.getListaRestricciones()[posicionEnum]) {
+            checkBoxIntoleranteLactosa.setSelected(true);
+        }
+        posicionEnum = Usuario.Restricciones.Diabetico.ordinal();
+        if (usuario.getListaRestricciones()[posicionEnum]) {
+            checkBoxDiabetico.setSelected(true);
+        }
+        posicionEnum = Usuario.Restricciones.Hipertension.ordinal();
+        if (usuario.getListaRestricciones()[posicionEnum]) {
+            checkBoxHipertension.setSelected(true);
+        }
+        if (usuario.getPreferenciasAlimentarias().equals(Usuario.Preferencias.Organico)) {
+            rBOrganico.setSelected(true);
+        }
+        if (usuario.getPreferenciasAlimentarias().equals(Usuario.Preferencias.Macrobiotico)) {
+            rBMacrobiotico.setSelected(true);
+        }
+        if (usuario.getPreferenciasAlimentarias().equals(Usuario.Preferencias.Vegano)) {
+            rBVegano.setSelected(true);
+        }
+        if (usuario.getPreferenciasAlimentarias().equals(Usuario.Preferencias.Vegetariano)) {
+            rBVegetariano.setSelected(true);
+        }
+    }
+
     private void cajaNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreFocusLost
         String nombre = cajaNombre.getText();
         if (nombre.trim().isEmpty()) {
@@ -427,26 +474,26 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cajaApellidosFocusLost
 
-    private void cajaAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaAlturaFocusLost
-        String altura = cajaAltura.getText();
+    private void cajaPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaPesoFocusLost
+        String altura = cajaPeso.getText();
         if (altura.trim().isEmpty()) {
             etiquetaErrorAltura.setText("Debe completar este campo");
         }
-    }//GEN-LAST:event_cajaAlturaFocusLost
+    }//GEN-LAST:event_cajaPesoFocusLost
 
-    private void cajaPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaPesoFocusLost
-        String peso = cajaPeso.getText();
+    private void cajaAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaAlturaFocusLost
+        String peso = cajaAltura.getText();
         if (peso.trim().isEmpty()) {
             etiquetaErrorAltura.setText("Debe completar este campo");
         }
-    }//GEN-LAST:event_cajaPesoFocusLost
+    }//GEN-LAST:event_cajaAlturaFocusLost
 
     private void btnAceptarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarUsuarioActionPerformed
         boolean nombreValido = !cajaNombre.getText().trim().isEmpty();
         boolean apellidoValido = !cajaApellidos.getText().trim().isEmpty();
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
-        boolean altura = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorAltura);
-        boolean peso = pidoDatoNumerico(cajaPeso.getText(), 0, 265, etiquetaErrorPeso);
+        boolean altura = pidoDatoNumerico(cajaPeso.getText(), 0, 265, etiquetaErrorAltura);
+        boolean peso = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorPeso);
         boolean sexoPred = sexoPredeterminado();
         if (nombreValido && apellidoValido
                 && altura && peso && fNacimientoValido) {
@@ -465,7 +512,6 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             usuario.setPesoKg(Integer.parseInt(cajaPeso.getText()));
             usuario.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
             etiquetaMensajeAlAceptar.setText("Usuario editado correctamente");
-
         } else {
             etiquetaMensajeAlAceptar.setText("Error al editar el usuario");
             if (nombreValido == false) {
@@ -625,12 +671,16 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         int datoAVerificar = 0;
         boolean pidiendo = false;
         try {
-            datoAVerificar = Integer.parseInt(dato);
-            if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
-                pidiendo = true;
+            if (dato.trim().isEmpty()) {
+                etiqueta.setText("Debe completar este campo");
             } else {
-                etiqueta.setText("El dato no es válido, debe estar entre:"
-                        + min + "y" + max);
+                datoAVerificar = Integer.parseInt(dato);
+                if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
+                    pidiendo = true;
+                } else {
+                    etiqueta.setText("El dato no es válido, debe estar entre:"
+                            + min + "y" + max);
+                }
             }
         } catch (NumberFormatException ex) {
             etiqueta.setText("Debe ingresar un valor numérico");

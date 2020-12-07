@@ -123,7 +123,7 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
         datos.add("Fecha de nacimiento: " + unUsuario.getFechaNacimiento());
         datos.add("Nacionalidad: " + unUsuario.getNacionalidad());
         datos.add("Altura: " + unUsuario.getAlturaCm());
-        datos.add("Paso: " + unUsuario.getPesoKg());
+        datos.add("Peso: " + unUsuario.getPesoKg());
         datos.add("Sexo: " + unUsuario.getSexo());
         datos.add("Restricciones: " + restricciones);
         datos.add("Preferencias: " + unUsuario.getPreferenciasAlimentarias());

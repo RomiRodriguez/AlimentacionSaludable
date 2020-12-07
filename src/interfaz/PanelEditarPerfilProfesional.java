@@ -4,7 +4,10 @@ import dominio.Sistema;
 import dominio.Profesional;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -28,6 +31,11 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         Profesional.Pais[] listaPaises = profesional.getListaEnumPais();
         listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
         listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
+        try {
+            CargarDatosProfesional();
+        } catch (ParseException ex) {
+            Logger.getLogger(PanelEditarPerfilProfesional.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -127,7 +135,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(cajaNombreTituloProf);
-        cajaNombreTituloProf.setBounds(560, 270, 160, 35);
+        cajaNombreTituloProf.setBounds(560, 270, 160, 30);
 
         btnAceptarProf.setBackground(new java.awt.Color(255, 0, 102));
         btnAceptarProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -238,6 +246,14 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CargarDatosProfesional() throws ParseException {
+        cajaNombreProf.setText(profesional.getNombre());
+        cajaApellidosProf.setText(profesional.getApellidos());
+        fechaNacimiento.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(profesional.getFechaNacimiento()));
+        cajaNombreTituloProf.setText(profesional.getNombreTituloProf());
+        fechaGraduacion.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(profesional.getFechaGraduacion()));
+    }
 
     public InterfazBotonesProfesional getInterfaz() {
         return interfaz;

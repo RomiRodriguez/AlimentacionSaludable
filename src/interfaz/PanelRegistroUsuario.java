@@ -546,12 +546,6 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             if (fNacimientoValido == false) {
                 etiquetaErrorFechaNacimiento.setText("Debe completar este campo");
             }
-            if (altura == false) {
-                etiquetaErrorAltura.setText("Debe completar este campo");
-            }
-            if (peso == false) {
-                etiquetaErrorPeso.setText("Debe completar este campo");
-            }
         }
     }//GEN-LAST:event_btnAceptarUsuarioActionPerformed
 
@@ -723,13 +717,17 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         int datoAVerificar = 0;
         boolean pidiendo = false;
         try {
-            datoAVerificar = Integer.parseInt(dato);
-            if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
-                pidiendo = true;
-                etiqueta.setText("");
+            if (dato.trim().isEmpty()) {
+                etiqueta.setText("Debe completar este campo");
             } else {
-                etiqueta.setText("El dato debe estar entre: "
-                        + min + " y " + max);
+                datoAVerificar = Integer.parseInt(dato);
+                if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
+                    pidiendo = true;
+                    etiqueta.setText("");
+                } else {
+                    etiqueta.setText("El dato debe estar entre: "
+                            + min + " y " + max);
+                }
             }
         } catch (NumberFormatException ex) {
             etiqueta.setText("Debe ingresar un valor numérico");
